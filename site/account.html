@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Account · HEY Research Lab</title>
+<script>
+  /* Theme before first paint: same key ('hey-theme') as the toggle script at the end of the body; no attribute = follow the system. */
+  (function () { try { var t = localStorage.getItem('hey-theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {} })();
+</script>
+<!-- The icon is HEY's own mark. -->
+<link rel="icon" href="assets/icon.png" type="image/png">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Account page only: page head, the requests row, the empty blocks, the actions list, the sticky aside. Tokens only. */
+  .page-head { padding-top: var(--s-12); max-width: 720px; }
+  .page-head .display { margin-top: var(--s-2); }
+  .page-head .prose { margin-top: var(--s-5); color: var(--text-2); }
+  .account-main > section + section { margin-top: var(--s-10); }
+  .account-main > section { max-width: 720px; }
+  .account-main .h2 + p { margin-top: var(--s-2); max-width: 60ch; }
+  .wallet__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3) var(--s-4); margin-top: var(--s-5); }
+  .requests .ledger-row { grid-template-columns: minmax(0, 1fr) auto auto auto; grid-template-areas: "project status fee ship" "source status fee ship"; align-items: baseline; }
+  .requests .cell-fee { grid-area: fee; }
+  .requests .cell-ship { font-family: var(--font-mono); font-size: var(--text-sm); color: var(--text-3); white-space: nowrap; }
+  @media (max-width: 720px) { .requests .ledger-row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "project status" "source fee" "source ship"; } }
+  .aside-signature { margin-top: var(--s-3); }
+  .account-main .empty { margin-top: var(--s-4); }
+  .session__actions { margin-top: var(--s-4); }
+  .actions { margin-top: var(--s-8); border-top: var(--rule-strong); }
+  .actions li { display: grid; gap: var(--s-1); padding-block: var(--s-3); border-bottom: var(--rule); }
+  .actions .btn--ghost { --btn-h: var(--s-8); justify-self: start; margin-left: calc(-1 * var(--s-2)); color: var(--text); }
+  @media (min-width: 961px) { .account-aside { position: sticky; top: calc(var(--header-h) + var(--s-6)); } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html" aria-label="HEY Research Lab, home">
+      <svg class="brand__mark" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 2h5v7h4V2h5v18h-5v-7H9v7H4z" fill="var(--accent)" stroke="var(--ink)" stroke-width="1"/></svg>
+      <span>HEY Research Lab<span class="brand__line">Robinhood Chain builder intelligence.</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="explore.html">Explore</a><a href="explore.html">Ships</a><a href="scan.html">Scout</a><a href="explore.html">Pulse</a><a href="hey.html">$HEY</a>
+    </nav>
+    <div class="site-header__actions">
+      <span class="live"><i class="live__dot" aria-hidden="true"></i>RH / 4663</span>
+      <a class="btn btn--ghost site-header__search" href="index.html#q">Search</a>
+      <a class="btn btn--primary site-header__submit" href="submit.html" data-prototype="missing" title="Not part of this prototype">Submit Project</a>
+      <a class="btn btn--secondary site-header__signin" href="account.html" aria-current="page">Account</a>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme" data-theme-toggle><span class="theme-toggle__glyph" aria-hidden="true">◐</span></button>
+      <details class="site-menu">
+        <summary class="btn btn--secondary">Menu</summary>
+        <nav class="site-menu__panel" aria-label="Menu">
+          <a href="explore.html">Explore</a><a href="explore.html">Ships</a><a href="scan.html">Scout</a><a href="explore.html">Pulse</a><a href="hey.html">$HEY</a>
+          <a href="index.html#q">Search</a><a href="submit.html" data-prototype="missing" title="Not part of this prototype">Submit Project</a><a href="account.html" aria-current="page">Account</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="container">
+  <header class="page-head">
+    <p class="caption">Account</p>
+    <h1 class="display" id="account-h">Alex</h1>
+    <div class="prose">
+      <p>Everything you have done on HEY, in one place: your tier and what it gives you, your requests, bounties, payouts, bonds, votes, and every HEY that moved between you and the treasury. Read from HEY's own records only.</p>
+    </div>
+  </header>
+
+  <div class="project-body">
+    <div class="project-main account-main">
+      <section class="card card--raised" id="wallet" aria-labelledby="wallet-h">
+        <h2 class="h2" id="wallet-h">Wallet</h2>
+        <p>One wallet per account. It is the wallet HEY payments come from, the wallet research bounties are paid to, and the only wallet whose HEY balance can set your holder tier. Linking is a signature: no transaction, no funds, no approval.</p>
+        <div class="wallet__actions">
+          <button class="btn btn--primary" type="button">Connect wallet</button>
+        </div>
+      </section>
+
+      <section class="requests" aria-labelledby="requests-h">
+        <h2 class="h2" id="requests-h">Your research requests</h2>
+        <p>Every project you asked HEY to research, free or paid, and where it stands.</p>
+        <!-- Only Chit's profile exists in this prototype, so the project name links there. -->
+        <div class="ledger" role="table" aria-label="Your research requests">
+          <div class="visually-hidden" role="row"><span role="columnheader">Project</span><span role="columnheader">Status</span><span role="columnheader">Free or paid</span><span role="columnheader">Requested</span></div>
+          <div class="ledger-row" role="row">
+            <div class="cell-project" role="cell"><a class="ledger__name" href="project.html">Quorum</a></div>
+            <div class="cell-source source-line" role="cell">via project page · Quorum</div>
+            <div class="cell-status" role="cell"><span class="evidence"><span class="evidence__glyph" aria-hidden="true">●</span>completed</span></div>
+            <div class="cell-fee source-line" role="cell">free</div>
+            <div class="cell-ship" role="cell">1d ago</div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="bounties-h">
+        <h2 class="h2" id="bounties-h">Your bounties</h2>
+        <p>Bounties you proposed and funded, and work you claimed. Payouts are listed below once a claim is approved.</p>
+        <div class="empty">
+          <h3 class="h3">Nothing yet.</h3>
+          <p>Propose a bounty, or claim open work on the <a href="bounties.html" data-prototype="missing" title="Not part of this prototype">bounties page</a>.</p>
+          <a class="btn btn--secondary empty__action" href="bounties.html" data-prototype="missing" title="Not part of this prototype">Propose a bounty</a>
+        </div>
+      </section>
+
+      <section aria-labelledby="treasury-h">
+        <h2 class="h2" id="treasury-h">HEY between you and the treasury</h2>
+        <p>Every transfer HEY recorded from your wallet or to it, with its status on chain. The same rows make the public monthly ledger.</p>
+        <div class="empty">
+          <h3 class="h3">No HEY has moved yet.</h3>
+          <a class="btn btn--secondary empty__action" href="#wallet">Link a wallet</a>
+        </div>
+      </section>
+
+      <section aria-labelledby="votes-h">
+        <h2 class="h2" id="votes-h">Your votes</h2>
+        <p>The monthly research-funding rounds you voted in. Advisory: the founder decides and publishes.</p>
+        <div class="empty">
+          <h3 class="h3">No ballots yet.</h3>
+          <a class="btn btn--secondary empty__action" href="hey.html">See the current round</a>
+        </div>
+      </section>
+
+      <section aria-labelledby="api-h">
+        <h2 class="h2" id="api-h">API key</h2>
+        <p>The public API needs no key. A key reads the same data with a monthly allowance and a higher per-minute limit that follow your holder tier. It unlocks nothing private.</p>
+        <div class="empty">
+          <h3 class="h3">No key yet.</h3>
+          <button class="btn btn--secondary empty__action" type="button">Create key</button>
+        </div>
+      </section>
+
+      <section aria-labelledby="session-h">
+        <h2 class="h2" id="session-h">Session</h2>
+        <p>Signed in with GitHub. Signing out ends this session on this device only.</p>
+        <p class="session__actions"><button class="btn btn--secondary" type="button">Sign out</button></p>
+      </section>
+    </div>
+
+    <aside class="project-aside account-aside" aria-label="Your tier, your counts and what you can do">
+      <dl class="kv" aria-label="Your tier and counts">
+        <div class="kv__row"><dt>Holder tier</dt><dd class="kv__text">Free</dd><dd class="kv__note source-line">link a wallet to earn one</dd></div>
+        <div class="kv__row"><dt>HEY discount</dt><dd class="kv__text">none</dd><dd class="kv__note source-line">on research and placements</dd></div>
+        <div class="kv__row"><dt>API allowance</dt><dd class="kv__text">shared limit</dd></div>
+        <div class="kv__row"><dt>Early access</dt><dd class="kv__text">off</dd><dd class="kv__note source-line">new research notes before everyone</dd></div>
+        <div class="kv__row"><dt>Research requests</dt><dd>1</dd></div>
+        <div class="kv__row"><dt>Bounties</dt><dd>0</dd><dd class="kv__note source-line">funded or claimed</dd></div>
+        <div class="kv__row"><dt>Watchlist</dt><dd>0</dd><dd class="kv__note source-line">projects followed</dd></div>
+      </dl>
+      <p class="source-line aside-signature">Read from HEY's own records only.</p>
+
+      <ul class="actions" aria-label="What you can do">
+        <li><a class="btn btn--ghost" href="#wallet">Link a wallet</a><span class="source-line">one signature; needed for anything paid</span></li>
+        <li><a class="btn btn--ghost" href="project.html">Request research</a><span class="source-line">from any project page</span></li>
+        <li><a class="btn btn--ghost" href="bounties.html" data-prototype="missing" title="Not part of this prototype">Propose a bounty</a><span class="source-line">you fund it in HEY</span></li>
+        <li><a class="btn btn--ghost" href="bounties.html" data-prototype="missing" title="Not part of this prototype">Take on open work</a><span class="source-line">credits, and HEY where a bounty is attached</span></li>
+        <li><a class="btn btn--ghost" href="project.html">Watchlist and email</a><span class="source-line">follow projects, get their ships</span></li>
+      </ul>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer ground-dots ground-dots--up">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <a class="brand" href="index.html" aria-label="HEY Research Lab, home">
+        <svg class="brand__mark" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 2h5v7h4V2h5v18h-5v-7H9v7H4z" fill="var(--accent)" stroke="var(--ink)" stroke-width="1"/></svg>
+        <span>HEY Research Lab<span class="brand__line">Robinhood Chain builder intelligence.</span></span>
+      </a>
+      <p class="site-footer__contract source-line">$HEY contract<br>0xB33eb16782776b4D738c0Fd643577cb0284Db610</p>
+      <p class="live live--static"><i class="live__dot" aria-hidden="true"></i>RH / 4663</p>
+    </div>
+    <div class="site-footer__group"><h2 class="caption">Discover</h2><ul><li><a href="explore.html">Explore</a></li><li><a href="explore.html">Ships</a></li><li><a href="explore.html">Pulse</a></li><li><a href="radar.html" data-prototype="missing" title="Not part of this prototype">Radar</a></li><li><a href="signals.html" data-prototype="missing" title="Not part of this prototype">Signals</a></li><li><a href="builders.html" data-prototype="missing" title="Not part of this prototype">Builders</a></li><li><a href="weekly.html" data-prototype="missing" title="Not part of this prototype">Weekly reports</a></li><li><a href="this-week.html" data-prototype="missing" title="Not part of this prototype">This Week</a></li><li><a href="narratives.html" data-prototype="missing" title="Not part of this prototype">Narratives</a></li><li><a href="map.html" data-prototype="missing" title="Not part of this prototype">Map</a></li></ul></div>
+    <div class="site-footer__group"><h2 class="caption">Research</h2><ul><li><a href="hey.html">$HEY</a></li><li><a href="scan.html">Scout</a></li><li><a href="scan.html">Who built this?</a></li><li><a href="bounties.html" data-prototype="missing" title="Not part of this prototype">Bounties</a></li><li><a href="submit.html" data-prototype="missing" title="Not part of this prototype">Submit Project</a></li><li><a href="account.html">Watchlist</a></li><li><a href="updates.html" data-prototype="missing" title="Not part of this prototype">Updates</a></li><li><a href="account.html">Account</a></li></ul></div>
+    <div class="site-footer__group"><h2 class="caption">About</h2><ul><li><a href="methodology.html">Methodology</a></li><li><a href="methodology.html">Docs</a></li><li><a href="methodology.html">API &amp; MCP</a></li><li><a href="status.html" data-prototype="missing" title="Not part of this prototype">Status</a></li><li><a href="source.html" data-prototype="missing" title="Not part of this prototype">Source</a></li><li><a href="https://x.com/HeyResearch">X</a></li></ul></div>
+  </div>
+</footer>
+
+<script>
+  /* Theme toggle: the only script on the page. Reads a stored choice in try/catch, sets data-theme on <html>,
+     flips it on click. No attribute stored = follow the system (the tokens' media query). */
+  (function () {
+    var root = document.documentElement, btn = document.querySelector('[data-theme-toggle]'), stored = null;
+    if (!btn) return;
+    try { stored = localStorage.getItem('hey-theme'); } catch (e) { stored = null; }
+    if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
+    function isDark() {
+      var t = root.getAttribute('data-theme');
+      if (t) return t === 'dark';
+      return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+    function paint() {
+      var d = isDark();
+      btn.setAttribute('aria-pressed', d ? 'true' : 'false');
+      btn.setAttribute('aria-label', d ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('hey-theme', next); } catch (e) {}
+      paint();
+    });
+    paint();
+  })();
+</script>
+</body>
+</html>

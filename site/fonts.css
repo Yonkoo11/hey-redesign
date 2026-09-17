@@ -1,0 +1,6 @@
+/* Self-hosted, latin subset. One face per family and style: the Schibsted and Newsreader files are variable (wght axis),
+   so a single declaration covers the range; Newsreader italic and Fragment Mono are single 400 faces. */
+@font-face{font-family:'Schibsted Grotesk';font-style:normal;font-weight:400 700;font-display:swap;src:url('fonts/SchibstedGrotesk-var.woff2') format('woff2')}
+@font-face{font-family:'Newsreader';font-style:normal;font-weight:400 600;font-display:swap;src:url('fonts/Newsreader-var.woff2') format('woff2')}
+@font-face{font-family:'Newsreader';font-style:italic;font-weight:400;font-display:swap;src:url('fonts/Newsreader-italic.woff2') format('woff2')}
+@font-face{font-family:'Fragment Mono';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/FragmentMono.woff2') format('woff2')}

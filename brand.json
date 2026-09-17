@@ -1,0 +1,17 @@
+{
+  "name": "HEY Research Lab",
+  "tagline": "Robinhood Chain builder intelligence.",
+  "colorMode": "both",
+  "brandColor": "#C0F800",
+  "accent": "#C0F800",
+  "accentText": { "light": "#4F6B00", "dark": "#C0F800" },
+  "ink": ["#F4F3ED", "#FBFAF6", "#FDFDFA", "#141410", "#1C1C17", "#24241E"],
+  "surfaces": { "light": { "bg": "#F4F3ED", "elev1": "#FBFAF6", "elev2": "#FDFDFA", "sunken": "#ECEBE3" }, "dark": { "bg": "#141410", "elev1": "#1C1C17", "elev2": "#24241E", "sunken": "#0F0F0C" } },
+  "semantic": { "success": "#1F7A3A", "warning": "#8F5A10", "danger": "#B8352C", "successDark": "#5BD37A", "warningDark": "#F0B950", "dangerDark": "#F07A70" },
+  "fonts": { "display": "Newsreader", "body": "Schibsted Grotesk", "mono": "Fragment Mono" },
+  "radii": { "control": 6, "card": 10, "overlay": 14, "full": 9999 },
+  "shadowPhilosophy": "soft-elevation",
+  "signatureElement": "The source line: a mono provenance line under every number, in a hairline-ruled ledger row.",
+  "logoPath": "ai/site-capture/assets/icon.png",
+  "logoNote": "HEY's own mark, unchanged. This redesign covers the site, not the brand."
+}

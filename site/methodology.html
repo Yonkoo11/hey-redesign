@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Methodology · HEY Research Lab</title>
+<script>
+  /* Theme before first paint: same key ('hey-theme') as the toggle script at the end of the body; no attribute = follow the system. */
+  (function () { try { var t = localStorage.getItem('hey-theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {} })();
+</script>
+<!-- The icon is HEY's own mark. -->
+<link rel="icon" href="assets/icon.png" type="image/png">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Methodology, page-scoped: the title block, the sticky "On this page" list in the aside, anchor offsets under the
+     sticky header, and a weight caption under the momentum parts. Reads tokens and styles.css derived values only. */
+  .method-head { padding-block: var(--s-12) 0; }
+  .method-head .prose { margin-top: var(--s-5); }
+  .method-body.project-body { padding-top: var(--s-10); }
+  .method-body .prose .kv, .method-body .prose .momentum-parts { font-size: var(--text-body); line-height: var(--lh-body); }
+  .method-body .prose .kv__row dd.kv__text { text-align: left; }
+  .method-body .prose .kv__row dt .status, .method-body .prose .kv__row dt .evidence { color: var(--text); }
+  .momentum-caption { margin-top: var(--s-3); }
+  .method-body [id] { scroll-margin-top: calc(var(--header-h) + var(--s-4)); }
+  .toc { position: sticky; top: calc(var(--header-h) + var(--s-6)); }
+  .toc .caption { display: block; margin-bottom: var(--s-2); }
+  .toc ol { border-top: var(--rule-strong); }
+  .toc li { border-bottom: var(--rule); }
+  .toc a { display: flex; align-items: center; min-height: var(--s-8); padding-block: var(--s-1); color: var(--text-2); font-size: var(--text-sm); text-decoration: none; transition: var(--t-lift); }
+  .toc a:focus-visible { box-shadow: var(--ring-shadow); border-radius: var(--radius-control); }
+  @media (hover: hover) { .toc a:hover { color: var(--text); transform: translateX(2px); } }
+  @media (max-width: 960px) {
+    .toc { position: static; }
+    .method-body .project-aside { order: -1; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html" aria-label="HEY Research Lab, home">
+      <svg class="brand__mark" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 2h5v7h4V2h5v18h-5v-7H9v7H4z" fill="var(--accent)" stroke="var(--ink)" stroke-width="1"/></svg>
+      <span>HEY Research Lab<span class="brand__line">Robinhood Chain builder intelligence.</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="explore.html">Explore</a><a href="explore.html">Ships</a><a href="scan.html">Scout</a><a href="explore.html">Pulse</a><a href="hey.html">$HEY</a>
+    </nav>
+    <div class="site-header__actions">
+      <span class="live"><i class="live__dot" aria-hidden="true"></i>RH / 4663</span>
+      <a class="btn btn--ghost site-header__search" href="index.html#q">Search</a>
+      <a class="btn btn--primary site-header__submit" href="submit.html" data-prototype="missing" title="Not part of this prototype">Submit Project</a>
+      <a class="btn btn--secondary site-header__signin" href="account.html">Sign in</a>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme" data-theme-toggle><span class="theme-toggle__glyph" aria-hidden="true">◐</span></button>
+      <details class="site-menu">
+        <summary class="btn btn--secondary">Menu</summary>
+        <nav class="site-menu__panel" aria-label="Menu">
+          <a href="explore.html">Explore</a><a href="explore.html">Ships</a><a href="scan.html">Scout</a><a href="explore.html">Pulse</a><a href="hey.html">$HEY</a>
+          <a href="index.html#q">Search</a><a href="submit.html" data-prototype="missing" title="Not part of this prototype">Submit Project</a><a href="account.html">Sign in</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="container">
+  <article aria-labelledby="method-h">
+    <header class="method-head">
+      <h1 class="h1" id="method-h">Methodology</h1>
+      <div class="prose">
+        <p>Scoring version <span class="mono">hbm-v5</span>. Every rule below is deterministic: the same evidence always produces the same result.</p>
+      </div>
+    </header>
+
+    <div class="method-body project-body">
+      <div class="project-main">
+        <section class="prose" id="what-counts" aria-labelledby="what-counts-h">
+          <h2 class="h2" id="what-counts-h">What counts as building</h2>
+          <p>HEY records a ShipEvent when a project does something concrete: a release, a deployment, an integration, an SDK, documentation, or, for meme projects, a game, tool, bot, art drop or community event. Creative and community output is real output. A meme is never required to pretend it ships software.</p>
+          <p>Announcements, hype, giveaways and marketing posts are recorded but never counted as building. An event also has to be backed by a public source or better before it can affect a project's status, so a project cannot talk its way into looking active.</p>
+        </section>
+
+        <section class="prose" id="activity-status" aria-labelledby="activity-status-h">
+          <h2 class="h2" id="activity-status-h">Activity status</h2>
+          <dl class="kv">
+            <div class="kv__row"><dt><span class="status status--shipping"><span class="status__glyph" aria-hidden="true">●</span>Shipping</span></dt><dd>7 days</dd><dd class="kv__note kv__text">A meaningful, source-backed update in the last 7 days.</dd></div>
+            <div class="kv__row"><dt><span class="status status--active"><span class="status__glyph" aria-hidden="true">◐</span>Active</span></dt><dd>30 days · 2 in 45</dd><dd class="kv__note kv__text">A meaningful update in the last 30 days, or at least 2 in the last 45.</dd></div>
+            <div class="kv__row"><dt><span class="status status--quiet"><span class="status__glyph" aria-hidden="true">○</span>Quiet</span></dt><dd>30–60 days</dd><dd class="kv__note kv__text">No meaningful updates for 30–60 days.</dd></div>
+            <div class="kv__row"><dt><span class="status status--dormant"><span class="status__glyph" aria-hidden="true">○</span>Dormant</span></dt><dd>over 60 days</dd><dd class="kv__note kv__text">No meaningful updates observed for over 60 days. This is not the same as abandoned. HEY reports what it can observe, nothing more.</dd></div>
+            <div class="kv__row"><dt><span class="status status--resumed"><span class="status__glyph" aria-hidden="true">◐</span>Resumed building</span></dt><dd>60+ day gap</dd><dd class="kv__note kv__text">Shipping again after a gap of 60 days or more.</dd></div>
+            <div class="kv__row"><dt><span class="status status--unknown"><span class="status__glyph" aria-hidden="true">○</span>Activity unknown</span></dt><dd class="kv__note kv__text">HEY does not yet track enough public sources for this project to judge.</dd></div>
+          </dl>
+          <p>Activity is never derived from token price, market cap, trading volume, holders or wallets.</p>
+        </section>
+
+        <section class="prose" id="build-momentum" aria-labelledby="build-momentum-h">
+          <h2 class="h2" id="build-momentum-h">HEY Build Momentum</h2>
+          <p>A 0–100 measure of how consistently a project ships meaningful work, combining:</p>
+          <figure>
+            <div class="momentum-parts" role="table" aria-label="Build Momentum weights">
+              <div class="momentum-part" role="row"><span class="momentum-part__name" role="cell">shipping recency</span><span class="momentum-part__value cell-num" role="cell">35%</span><span class="momentum-part__bar" role="cell" aria-hidden="true"><i style="--v:35"></i></span></div>
+              <div class="momentum-part" role="row"><span class="momentum-part__name" role="cell">shipping consistency</span><span class="momentum-part__value cell-num" role="cell">25%</span><span class="momentum-part__bar" role="cell" aria-hidden="true"><i style="--v:25"></i></span></div>
+              <div class="momentum-part" role="row"><span class="momentum-part__name" role="cell">shipping significance</span><span class="momentum-part__value cell-num" role="cell">20%</span><span class="momentum-part__bar" role="cell" aria-hidden="true"><i style="--v:20"></i></span></div>
+              <div class="momentum-part" role="row"><span class="momentum-part__name" role="cell">verification quality</span><span class="momentum-part__value cell-num" role="cell">15%</span><span class="momentum-part__bar" role="cell" aria-hidden="true"><i style="--v:15"></i></span></div>
+              <div class="momentum-part" role="row"><span class="momentum-part__name" role="cell">source diversity</span><span class="momentum-part__value cell-num" role="cell">5%</span><span class="momentum-part__bar" role="cell" aria-hidden="true"><i style="--v:5"></i></span></div>
+            </div>
+            <figcaption class="source-line momentum-caption">weights, not a project's score</figcaption>
+          </figure>
+          <p>Bigger deliverables carry more weight: a product launch counts 10 where a documentation update counts 3, and an announcement counts 0. Repeated updates of the same kind have diminishing returns, and aggregated commit activity is capped, so neither commit volume nor marketing volume can inflate the score.</p>
+          <dl class="kv" aria-label="Ship weights">
+            <div class="kv__row"><dt>Product launch</dt><dd>10</dd></div>
+            <div class="kv__row"><dt>Documentation update</dt><dd>3</dd></div>
+            <div class="kv__row"><dt>Announcement</dt><dd>0</dd></div>
+          </dl>
+        </section>
+
+        <section class="prose" id="discovery-gap" aria-labelledby="discovery-gap-h">
+          <h2 class="h2" id="discovery-gap-h">Discovery Gap and Still Building</h2>
+          <p>Discovery Gap compares how actively a project ships against its current market footprint. A project appears Under the Radar when it is active, has Build Momentum of at least 30, and has at least 2 source-backed updates in the last 30 days.</p>
+          <p>Still Building is shown when a project's market value is at or below 50% of the high HEY itself observed in the last 90 days, and meaningful building continued after that decline began.</p>
+          <dl class="kv" aria-label="Badge thresholds">
+            <div class="kv__row"><dt>Under the Radar</dt><dd class="kv__note">active · Build Momentum ≥ 30 · 2 updates in 30 days</dd></div>
+            <div class="kv__row"><dt>Still Building</dt><dd class="kv__note">≤ 50% of the 90-day high · building continued</dd></div>
+          </dl>
+          <p>These are factual observations about past activity and market context. They are not predictions, not valuations, and not investment advice. HEY never claims that continued building will affect a token's price.</p>
+        </section>
+
+        <section class="prose" id="token-market" aria-labelledby="token-market-h">
+          <h2 class="h2" id="token-market-h">Token market status and token verification</h2>
+          <p>A project can be building while its token has no market, and a token can trade while nobody builds. HEY keeps the two apart. Activity status reads ships and repositories. Token market status reads HEY's own market snapshots and is shown beside it, never inside it: Active market, Low liquidity (under $5K), No liquidity, Trading inactive (liquidity but no trades in 24 hours), Liquidity no longer detected (HEY recorded at least $5K earlier and now sees a tenth of it or less), Market not detected (no reading for 30 days after a market existed), or Market data insufficient. These are observations HEY made; none is a verdict on why.</p>
+          <dl class="kv" aria-label="Token market states">
+            <div class="kv__row"><dt>Active market</dt><dd class="kv__note kv__text">The tracked token has liquidity and traded in the last 24 hours.</dd></div>
+            <div class="kv__row"><dt>Low liquidity</dt><dd class="kv__note kv__text">under $5K</dd></div>
+            <div class="kv__row"><dt>No liquidity</dt><dd class="kv__note source-line">no further definition on the page</dd></div>
+            <div class="kv__row"><dt>Trading inactive</dt><dd class="kv__note kv__text">liquidity but no trades in 24 hours</dd></div>
+            <div class="kv__row"><dt>Liquidity no longer detected</dt><dd class="kv__note kv__text">HEY recorded at least $5K earlier and now sees a tenth of it or less</dd></div>
+            <div class="kv__row"><dt>Market not detected</dt><dd class="kv__note kv__text">no reading for 30 days after a market existed</dd></div>
+            <div class="kv__row"><dt>Market data insufficient</dt><dd class="kv__note source-line">no further definition on the page</dd></div>
+          </dl>
+          <p>Token verification asks a different question: is the token HEY tracks the project's own? Finding a token through a launchpad record, a market listing or a matching name establishes nothing. A token is Verified only when the project itself ties the contract to the project: its own site names the address, or the owner proves control of the deployer with an on-chain signature. Contract mismatch means the project's site names a different contract than the one tracked. Everything else stays Unverified, with the reason on the page.</p>
+          <p>The links on a project page carry their own, separate label, and it is not the same question as either of the above.</p>
+          <dl class="kv" aria-label="Link labels">
+            <div class="kv__row"><dt><span class="link-label link-label--ink">Verified</span></dt><dd class="kv__note kv__text">Verified means HEY confirmed the project controls that link.</dd></div>
+            <div class="kv__row"><dt><span class="link-label">Official</span></dt><dd class="kv__note kv__text">Official means HEY found it published on the project's own domain, which is evidence rather than a claim.</dd></div>
+            <div class="kv__row"><dt><span class="link-label">Declared by the project</span></dt><dd class="kv__note kv__text">Declared by the project means someone put their name to it on a submission and a moderator approved the page, a claim with a person behind it.</dd></div>
+            <div class="kv__row"><dt><span class="link-label">Unverified</span></dt><dd class="kv__note kv__text">Unverified means HEY found the link and nobody has stood behind it. A project can be a verified builder while its links are only declared: the badge is about what was shipped, the label is about who says the link is theirs.</dd></div>
+          </dl>
+          <p>Two consequences. Still Building needs a market to decline against, so a token with no liquidity, a removed market or a launch pool nobody traded never carries the badge. And the home page lists projects whose tracked token still has a market, or no token at all; the rest keep their page and their place on Explore, with the fact stated. Neither changes activity status or Build Momentum.</p>
+        </section>
+
+        <section class="prose" id="evidence" aria-labelledby="evidence-h">
+          <h2 class="h2" id="evidence-h">Evidence</h2>
+          <p>Every update keeps its source. HEY distinguishes what a project claims from what can be checked:</p>
+          <dl class="kv" aria-label="Evidence grades">
+            <div class="kv__row"><dt><span class="evidence"><span class="evidence__glyph" aria-hidden="true">○</span>self reported</span></dt><dd class="kv__text">means a builder told us</dd></div>
+            <div class="kv__row"><dt><span class="evidence"><span class="evidence__glyph" aria-hidden="true">◐</span>source linked</span></dt><dd class="kv__text">means it came from a source registered to that project</dd></div>
+            <div class="kv__row"><dt><span class="evidence"><span class="evidence__glyph" aria-hidden="true">●</span>source verified</span></dt><dd class="kv__text">means HEY confirmed it against a public source such as a GitHub release</dd></div>
+          </dl>
+          <p>Disputed and retracted updates keep their record but stop counting.</p>
+        </section>
+
+        <section class="prose" id="as-data" aria-labelledby="as-data-h">
+          <h2 class="h2" id="as-data-h">Reading HEY as data</h2>
+          <p>Everything on these pages is also readable as JSON, with no key and no account:</p>
+          <dl class="kv" aria-label="Public API paths">
+            <div class="kv__row"><dt><a href="api.html" data-prototype="missing" title="Not part of this prototype">/api/projects</a></dt><dd class="kv__text">for the catalogue</dd></div>
+            <div class="kv__row"><dt><a href="api.html" data-prototype="missing" title="Not part of this prototype">/api/projects/{slug}</a></dt><dd class="kv__text">for one project</dd></div>
+            <div class="kv__row"><dt><a href="api.html" data-prototype="missing" title="Not part of this prototype">/api/ships</a></dt><dd class="kv__text">for what shipped</dd></div>
+          </dl>
+          <p>The same filters as the browse pages, the same counts, and every fact carries the source behind it. Anything HEY does not know is left out rather than sent as a zero. For a reader rather than a script, the same material is published as <a href="api.html" data-prototype="missing" title="Not part of this prototype">RSS</a>.</p>
+        </section>
+
+        <section class="prose" id="does-not" aria-labelledby="does-not-h">
+          <h2 class="h2" id="does-not-h">What HEY does not do</h2>
+          <p>HEY does not track wallets or holders, and stores no wallet, holder, PnL or smart-money data of any kind. It does not rank by price, and organic placement cannot be bought.</p>
+        </section>
+      </div>
+
+      <aside class="project-aside">
+        <nav class="toc" aria-labelledby="toc-h">
+          <h2 class="caption" id="toc-h">On this page</h2>
+          <ol>
+            <li><a href="#what-counts">What counts as building</a></li>
+            <li><a href="#activity-status">Activity status</a></li>
+            <li><a href="#build-momentum">HEY Build Momentum</a></li>
+            <li><a href="#discovery-gap">Discovery Gap and Still Building</a></li>
+            <li><a href="#token-market">Token market status and token verification</a></li>
+            <li><a href="#evidence">Evidence</a></li>
+            <li><a href="#as-data">Reading HEY as data</a></li>
+            <li><a href="#does-not">What HEY does not do</a></li>
+          </ol>
+        </nav>
+      </aside>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer ground-dots ground-dots--up">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <a class="brand" href="index.html" aria-label="HEY Research Lab, home">
+        <svg class="brand__mark" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 2h5v7h4V2h5v18h-5v-7H9v7H4z" fill="var(--accent)" stroke="var(--ink)" stroke-width="1"/></svg>
+        <span>HEY Research Lab<span class="brand__line">Robinhood Chain builder intelligence.</span></span>
+      </a>
+      <p class="site-footer__contract source-line">$HEY contract<br>0xB33eb16782776b4D738c0Fd643577cb0284Db610</p>
+      <p class="live live--static"><i class="live__dot" aria-hidden="true"></i>RH / 4663</p>
+    </div>
+    <div class="site-footer__group"><h2 class="caption">Discover</h2><ul><li><a href="explore.html">Explore</a></li><li><a href="explore.html">Ships</a></li><li><a href="explore.html">Pulse</a></li><li><a href="radar.html" data-prototype="missing" title="Not part of this prototype">Radar</a></li><li><a href="signals.html" data-prototype="missing" title="Not part of this prototype">Signals</a></li><li><a href="builders.html" data-prototype="missing" title="Not part of this prototype">Builders</a></li><li><a href="weekly.html" data-prototype="missing" title="Not part of this prototype">Weekly reports</a></li><li><a href="this-week.html" data-prototype="missing" title="Not part of this prototype">This Week</a></li><li><a href="narratives.html" data-prototype="missing" title="Not part of this prototype">Narratives</a></li><li><a href="map.html" data-prototype="missing" title="Not part of this prototype">Map</a></li></ul></div>
+    <div class="site-footer__group"><h2 class="caption">Research</h2><ul><li><a href="hey.html">$HEY</a></li><li><a href="scan.html">Scout</a></li><li><a href="scan.html">Who built this?</a></li><li><a href="bounties.html" data-prototype="missing" title="Not part of this prototype">Bounties</a></li><li><a href="submit.html" data-prototype="missing" title="Not part of this prototype">Submit Project</a></li><li><a href="account.html">Watchlist</a></li><li><a href="updates.html" data-prototype="missing" title="Not part of this prototype">Updates</a></li><li><a href="account.html">Account</a></li></ul></div>
+    <div class="site-footer__group"><h2 class="caption">About</h2><ul><li><a href="methodology.html">Methodology</a></li><li><a href="methodology.html">Docs</a></li><li><a href="methodology.html">API &amp; MCP</a></li><li><a href="status.html" data-prototype="missing" title="Not part of this prototype">Status</a></li><li><a href="source.html" data-prototype="missing" title="Not part of this prototype">Source</a></li><li><a href="https://x.com/HeyResearch">X</a></li></ul></div>
+  </div>
+</footer>
+
+<script>
+  /* Theme toggle: the only script on the page. Reads a stored choice in try/catch, sets data-theme on <html>,
+     flips it on click. No attribute stored = follow the system (the tokens' media query). */
+  (function () {
+    var root = document.documentElement, btn = document.querySelector('[data-theme-toggle]'), stored = null;
+    if (!btn) return;
+    try { stored = localStorage.getItem('hey-theme'); } catch (e) { stored = null; }
+    if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
+    function isDark() {
+      var t = root.getAttribute('data-theme');
+      if (t) return t === 'dark';
+      return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+    function paint() {
+      var d = isDark();
+      btn.setAttribute('aria-pressed', d ? 'true' : 'false');
+      btn.setAttribute('aria-label', d ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('hey-theme', next); } catch (e) {}
+      paint();
+    });
+    paint();
+  })();
+</script>
+</body>
+</html>

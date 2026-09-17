@@ -1,0 +1,164 @@
+<!doctype html>
+<!-- Before/after page. Uses the site's stylesheets and the screenshots in images/; the only script is the theme one in the head. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HEY Research Lab, a redesign proposal</title>
+<script>
+  /* Theme before paint: apply a stored choice so the ground never flashes; the toggle script at the end of body owns the rest. */
+  try { var t = localStorage.getItem('hey-theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+<link rel="stylesheet" href="../site/fonts.css">
+<link rel="stylesheet" href="../site/tokens.css">
+<link rel="stylesheet" href="../site/styles.css">
+<style>
+  /* Page-scoped, tokens only. */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-6); margin-top: var(--s-6); }
+  .compare figure { margin: 0; min-width: 0; }
+  .compare img { display: block; width: 100%; max-width: 100%; height: auto; border-radius: var(--radius-card); box-shadow: var(--shadow-sm), var(--inset-top); }
+  .compare .compare__phone img { width: 60%; margin-inline: auto; } /* a 400px capture, shown near its own width, never stretched */
+  .compare figcaption { margin-top: var(--s-3); font-size: var(--text-body); line-height: var(--lh-body); color: var(--text-2); }
+  .compare figcaption b { display: block; font-family: var(--font-sans); font-weight: 600; color: var(--text); }
+  .ruled { list-style: none; margin: var(--s-4) 0 0; padding: 0; border-top: var(--rule-strong); max-width: 66ch; }
+  .ruled li { padding-block: var(--s-3); border-bottom: var(--rule); font-size: var(--text-read); line-height: var(--lh-read); }
+  .ruled li b { font-family: var(--font-sans); font-weight: 600; }
+  .ruled .source-line { display: block; margin-top: var(--s-1); }
+  .page-intro { margin-top: var(--s-6); }
+  .page-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-10); }
+  .page-cols > * { min-width: 0; }
+  @media (max-width: 900px) { .compare, .page-cols { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="../site/index.html" aria-label="HEY Research Lab, home">
+      <svg class="brand__mark" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 2h5v7h4V2h5v18h-5v-7H9v7H4z" fill="var(--accent)" stroke="var(--ink)" stroke-width="1"/></svg>
+      <span>HEY Research Lab<span class="brand__line">Robinhood Chain builder intelligence.</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../site/explore.html">Explore</a><a href="../site/explore.html">Ships</a><a href="../site/scan.html">Scout</a><a href="../site/explore.html">Pulse</a><a href="../site/hey.html">$HEY</a>
+    </nav>
+    <div class="site-header__actions">
+      <span class="live"><i class="live__dot" aria-hidden="true"></i>RH / 4663</span>
+      <a class="btn btn--ghost site-header__search" href="../site/index.html#q">Search</a>
+      <a class="btn btn--primary site-header__submit" href="../site/submit.html" data-prototype="missing">Submit Project</a>
+      <a class="btn btn--secondary site-header__signin" href="../site/account.html">Sign in</a>
+      <details class="site-menu">
+        <summary class="btn btn--secondary">Menu</summary>
+        <nav class="site-menu__panel" aria-label="Menu">
+          <a href="../site/explore.html">Explore</a><a href="../site/explore.html">Ships</a><a href="../site/scan.html">Scout</a><a href="../site/explore.html">Pulse</a><a href="../site/hey.html">$HEY</a>
+          <a href="../site/index.html#q">Search</a><a href="../site/submit.html" data-prototype="missing">Submit Project</a><a href="../site/account.html">Sign in</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="container section" aria-labelledby="page-h">
+    <h1 class="display" id="page-h">HEY Research Lab, a redesign proposal</h1>
+    <div class="prose page-intro">
+      <p>This is a proposal for how heyresearch.xyz could look. We built it as a static prototype from the live site's own pages on 16 September 2026. Every number and every sentence in it is HEY's. Nothing was invented, and no copy was rewritten beyond button and caption text. It is unsolicited and free to use, take pieces from, or ignore.</p>
+    </div>
+  </section>
+
+  <section class="container section" aria-labelledby="home-h">
+    <div class="section__head"><h2 class="h2" id="home-h">Home</h2><span class="source-line">1440 wide · light · 16 September 2026</span></div>
+    <div class="compare">
+      <figure>
+        <img src="images/before-home.png" alt="The live heyresearch.xyz home page" loading="lazy">
+        <figcaption><b>Before: the live site</b>Dark navy, one sans face, a grid of twelve equal cards. Each card shows market cap; none shows Build Momentum.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/after-home.png" alt="The prototype home page" loading="lazy">
+        <figcaption><b>After: the prototype</b>The same headline in a serif, BUILDERS 741 as the largest number, the 14-day strip labelled 5,199 meaningful ships, then the same twelve projects as a ruled ledger: status, last ship, market cap, evidence grade, and a source line under every name.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="container section" aria-labelledby="project-h">
+    <div class="section__head"><h2 class="h2" id="project-h">Project profile: Chit</h2><span class="source-line">1440 wide · light · 16 September 2026</span></div>
+    <div class="compare">
+      <figure>
+        <img src="images/before-project.png" alt="The live Chit profile" loading="lazy">
+        <figcaption><b>Before: the live site</b>Status pills in the header, then Latest ship, Builder activity, Build timeline and Sources down the main column. Build Momentum 34 and its five parts sit in the right sidebar, below the fold.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/after-project.png" alt="The prototype Chit profile" loading="lazy">
+        <figcaption><b>After: the prototype</b>Build Momentum 34 opens the page, each of its five parts on its own ruled row with the weight beside it. Latest ship, the twelve-week bars, the timeline, the tracked token and the sources follow; public code activity 29 with its 60-day grid sits on the right.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="container section" aria-labelledby="explore-h">
+    <div class="section__head"><h2 class="h2" id="explore-h">Explore</h2><span class="source-line">1440 wide · light · prototype only</span></div>
+    <div class="compare">
+      <figure>
+        <img src="images/after-explore.png" alt="The prototype Explore page with live rows" loading="lazy">
+        <figcaption><b>Explore, live</b>The same ledger, rendered from HEY's public API with the filters the live site offers. Rows load 48 at a time; the line under the ledger says which response they came from.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="container section" aria-labelledby="modes-h">
+    <div class="section__head"><h2 class="h2" id="modes-h">Dark and phone</h2><span class="source-line">prototype only · the live site is dark-only in practice</span></div>
+    <div class="compare">
+      <figure>
+        <img src="images/after-home-dark.png" alt="The prototype home page in dark mode" loading="lazy">
+        <figcaption><b>Home, dark</b>The same page on a warm near-black ground with cream text. HEY's lime is the text accent here; nothing is inverted from the light page.</figcaption>
+      </figure>
+      <figure class="compare__phone">
+        <img src="images/after-home-phone.png" alt="The prototype home page at 400 pixels wide" loading="lazy">
+        <figcaption><b>Home, 400px</b>The header folds into a menu, the counters stack, and each ledger row keeps its name, status and source line. Nothing scrolls sideways.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="container section" aria-labelledby="changed-h">
+    <div class="page-cols">
+      <div>
+        <h2 class="h2" id="changed-h">What changed</h2>
+        <ul class="ruled">
+          <li><b>The ledger.</b> Twelve projects as ruled rows instead of twelve equal cards. The eye reads down a column, and density needs no boxes.</li>
+          <li><b>The source line.</b> Every number carries its provenance beneath it in mono. HEY's claim is that it shows the evidence; the page now looks like that is true.</li>
+          <li><b>Momentum first.</b> Build Momentum and its five weighted parts open the profile. It is the product, and it was in a sidebar below the fold.</li>
+          <li><b>Warm dark.</b> Dark mode is a warm ramp, not navy and not an inversion of light.</li>
+          <li><b>HEY's own colours.</b> Cream, ink and lime, sampled from HEY's icon. Lime is a fill for the mark, the primary button and the focus ring.</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="h2" id="kept-h">What we did not change</h2>
+        <ul class="ruled" aria-labelledby="kept-h">
+          <li><b>Their copy.</b> Headline, one-liners, disclosures and empty states are unchanged.</li>
+          <li><b>Their scoring.</b> Build Momentum, its weights, the 0 to 100 scale and hbm-v5 are shown as published.</li>
+          <li><b>Their statuses.</b> Shipping, Active, Quiet, Dormant, and the evidence grades, keep their words and their meaning.</li>
+          <li><b>Their mark.</b> The H mark and its colours are HEY's; the prototype only redraws it as an inline vector.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section" aria-labelledby="open-h">
+    <h2 class="h2" id="open-h">Open the prototype</h2>
+    <div class="prose page-intro">
+      <p>Seven pages, one stylesheet, one token file, one script for Explore, fonts self-hosted. <a href="../site/index.html">Open site/index.html</a>, or serve the <code>site/</code> folder with any static server. The token file and class list for a port are described in DESIGN_SYSTEM.md at the repository root.</p>
+      <p><a class="btn btn--secondary" href="../site/index.html">Open the prototype</a></p>
+    </div>
+  </section>
+
+  <section class="container section" aria-labelledby="numbers-h">
+    <h2 class="h2" id="numbers-h">Where the numbers come from</h2>
+    <ul class="ruled">
+      <li><b>The live pages.</b> Home, the Chit profile, Explore, Scan, $HEY, Account and Methodology on heyresearch.xyz, read on the morning of 16 September 2026. Market caps are that morning's values and drifted within hours.</li>
+      <li><b>The public API.</b> The evidence grade of each home project's latest ship comes from HEY's public API, read without a key on the same morning; the API value PUBLICLY_VERIFIED is shown with the methodology's phrase "source verified". Explore reads the projects endpoint live.<span class="source-line">/api/ships?project=slug · /api/projects</span></li>
+      <li><b>The 14-day chart.</b> "5199 meaningful ships over the last 14 days, peaking at 541 in a day" and its fourteen daily values are the live home page's own chart label, not recomputed.</li>
+      <li><b>Not in the prototype.</b> The home page shows the twelve front-door projects, not the 11,492-project catalogue; momentum is shown for Chit only; 17 nav and footer targets point at pages that were not built.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chit · HEY Research Lab</title>
+<script>
+  /* Theme before paint: apply a stored choice so the ground never flashes; the toggle script at the end of body owns the rest. */
+  try { var t = localStorage.getItem('hey-theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+<!-- The icon is HEY's own mark. -->
+<link rel="icon" href="assets/icon.png" type="image/png">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html" aria-label="HEY Research Lab, home">
+      <svg class="brand__mark" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 2h5v7h4V2h5v18h-5v-7H9v7H4z" fill="var(--accent)" stroke="var(--ink)" stroke-width="1"/></svg>
+      <span>HEY Research Lab<span class="brand__line">Robinhood Chain builder intelligence.</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="explore.html">Explore</a><a href="explore.html">Ships</a><a href="scan.html">Scout</a><a href="explore.html">Pulse</a><a href="hey.html">$HEY</a>
+    </nav>
+    <div class="site-header__actions">
+      <span class="live"><i class="live__dot" aria-hidden="true"></i>RH / 4663</span>
+      <a class="btn btn--ghost site-header__search" href="index.html#q">Search</a>
+      <a class="btn btn--primary site-header__submit" href="submit.html" data-prototype="missing">Submit Project</a>
+      <a class="btn btn--secondary site-header__signin" href="account.html">Sign in</a>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme" data-theme-toggle><span class="theme-toggle__glyph" aria-hidden="true">◐</span></button>
+      <details class="site-menu">
+        <summary class="btn btn--secondary">Menu</summary>
+        <nav class="site-menu__panel" aria-label="Menu">
+          <a href="explore.html">Explore</a><a href="explore.html">Ships</a><a href="scan.html">Scout</a><a href="explore.html">Pulse</a><a href="hey.html">$HEY</a>
+          <a href="index.html#q">Search</a><a href="submit.html" data-prototype="missing">Submit Project</a><a href="account.html">Sign in</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="container">
+  <article aria-labelledby="project-h">
+    <header class="project-head">
+      <div class="project-head__title">
+        <h1 class="h1" id="project-h">Chit</h1>
+        <span class="project-head__ticker">$CHIT</span>
+        <span class="project-head__type">Other · Infrastructure</span>
+        <span class="link-label link-label--ink">Verified builder</span>
+      </div>
+      <dl class="facts">
+        <div class="fact"><dt class="caption">Development</dt><dd class="fact__value"><span class="status status--shipping"><span class="status__glyph" aria-hidden="true">●</span>Shipping</span><span class="source-line">Last ship 2d ago</span></dd></div>
+        <div class="fact"><dt class="caption">Token market</dt><dd class="fact__value"><span>Active market</span><span class="source-line">$273K market cap</span></dd></div>
+        <div class="fact"><dt class="caption">Token</dt><dd class="fact__value"><span>Token unverified</span></dd></div>
+      </dl>
+      <details class="disclosure">
+        <summary>What HEY checked</summary>
+        <div class="disclosure__body">
+          <p>Shipping. Shipped something meaningful in the last 7 days.</p>
+          <p>Active market. The tracked token has liquidity and traded in the last 24 hours.</p>
+          <p>Token unverified. HEY found this token through a launch record or a market listing. Nothing the project itself published ties the contract to the project yet.</p>
+          <p>Market figures are context only and never change activity status.</p>
+        </div>
+      </details>
+      <p class="project-head__line">Private funding infrastructure for wallet fleets on Robinhood Chain</p>
+      <div class="project-links">
+        <nav class="project-links__list" aria-label="Project links">
+          <a href="#latest">View latest ship</a><a href="https://chit.tools/">Website</a><a href="https://github.com/ajanaku1/chit-app">GitHub</a><a href="https://x.com/usechit">X</a><a href="https://dexscreener.com/robinhood/0x84a4f18cfab0b389a63c4d8a56d08f021a6fd5efb0b0b3617cfbbd6706f09f41">DEX Screener</a><a href="#sources">Sources</a>
+        </nav>
+        <div class="project-links__actions">
+          <button class="btn btn--secondary btn--sm" type="button">Follow</button>
+          <button class="btn btn--ghost btn--sm" type="button">Share</button>
+          <a class="btn btn--ghost btn--sm" href="https://x.com/usechit">Open on X</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="momentum" aria-labelledby="momentum-h">
+      <div class="momentum__lead">
+        <h2 class="momentum__label" id="momentum-h">Build Momentum</h2>
+        <p class="momentum-figure" aria-describedby="momentum-h">34</p>
+        <p class="source-line">0 to 100. How consistently this project ships meaningful work.</p>
+        <a class="btn btn--ghost btn--sm momentum__how" href="methodology.html">How this is scored</a>
+        <p class="source-line">scoring version hbm-v5 · 1-week shipping streak</p>
+      </div>
+      <div class="momentum-parts" role="table" aria-label="Build Momentum parts">
+        <div class="momentum-part" role="row"><span class="momentum-part__name" role="cell">Shipping</span><span class="momentum-part__value cell-num" role="cell">23</span><span class="momentum-part__bar" role="cell" aria-hidden="true"><i style="--v:23"></i></span><span class="momentum-part__weight source-line" role="cell">weight 35% · shipping recency</span></div>
+        <div class="momentum-part" role="row"><span class="momentum-part__name" role="cell">Consistency</span><span class="momentum-part__value cell-num" role="cell">33</span><span class="momentum-part__bar" role="cell" aria-hidden="true"><i style="--v:33"></i></span><span class="momentum-part__weight source-line" role="cell">weight 25% · 1-week shipping streak</span></div>
+        <div class="momentum-part" role="row"><span class="momentum-part__name" role="cell">Significance</span><span class="momentum-part__value cell-num" role="cell">20</span><span class="momentum-part__bar" role="cell" aria-hidden="true"><i style="--v:20"></i></span><span class="momentum-part__weight source-line" role="cell">weight 20% · size of what shipped: a product launch counts 10, documentation 3, an announcement 0</span></div>
+        <div class="momentum-part" role="row"><span class="momentum-part__name" role="cell">Evidence</span><span class="momentum-part__value cell-num" role="cell">70</span><span class="momentum-part__bar momentum-part__bar--accent" role="cell" aria-hidden="true"><i style="--v:70"></i></span><span class="momentum-part__weight source-line" role="cell">weight 15% · verification quality</span></div>
+        <div class="momentum-part" role="row"><span class="momentum-part__name" role="cell">Sources</span><span class="momentum-part__value cell-num" role="cell">67</span><span class="momentum-part__bar" role="cell" aria-hidden="true"><i style="--v:67"></i></span><span class="momentum-part__weight source-line" role="cell">weight 5% · source diversity · 8 sources listed below</span></div>
+      </div>
+    </section>
+
+    <div class="project-body">
+      <div class="project-main">
+        <section id="latest" aria-labelledby="latest-h">
+          <h2 class="h2" id="latest-h">Latest ship</h2>
+          <article class="card">
+            <div class="card__head"><h3 class="h3">Active development: 100+ commits in the last 90 days across 3 contributors</h3><span class="source-line">2d ago</span></div>
+            <p>9 active day(s) in ajanaku1/chit-app.</p>
+            <p class="source-line">Code Activity · <span class="evidence"><span class="evidence__glyph" aria-hidden="true">◐</span>Source linked</span> · <a href="https://github.com/ajanaku1/chit-app">View evidence</a></p>
+          </article>
+        </section>
+
+        <section aria-labelledby="activity-h">
+          <h2 class="h2" id="activity-h">Builder activity</h2>
+          <figure class="bars-figure">
+            <div class="bars" style="--w:2" role="img" aria-label="Ships per week, last 12 weeks: W09 1, W11 2, W12 2, all other weeks 0">
+              <i class="bars__bar bars__bar--empty" style="--v:0"></i><i class="bars__bar bars__bar--empty" style="--v:0"></i><i class="bars__bar bars__bar--empty" style="--v:0"></i><i class="bars__bar bars__bar--empty" style="--v:0"></i>
+              <i class="bars__bar bars__bar--empty" style="--v:0"></i><i class="bars__bar bars__bar--empty" style="--v:0"></i><i class="bars__bar bars__bar--empty" style="--v:0"></i><i class="bars__bar bars__bar--empty" style="--v:0"></i>
+              <i class="bars__bar" style="--v:1"><b class="bars__count">1</b></i><i class="bars__bar bars__bar--empty" style="--v:0"></i><i class="bars__bar" style="--v:2"><b class="bars__count">2</b></i><i class="bars__bar" style="--v:2"><b class="bars__count">2</b></i>
+            </div>
+            <div class="bars__labels" aria-hidden="true"><span>W01</span><span>W02</span><span>W03</span><span>W04</span><span>W05</span><span>W06</span><span>W07</span><span>W08</span><span>W09</span><span>W10</span><span>W11</span><span>W12</span></div>
+            <span class="bars__labels-fallback source-line" aria-hidden="true">W01 to W12</span>
+            <figcaption class="source-line">Meaningful, source-backed updates per week. Commits are aggregated, not counted individually.</figcaption>
+            <p class="source-line">W09 week of 08-24: 1 ship · W11 week of 09-07: 2 · W12 week of 09-14: 2 · all other weeks 0</p>
+          </figure>
+        </section>
+
+        <section class="section--joined" aria-labelledby="timeline-h">
+          <details class="disclosure disclosure--section">
+            <summary><h2 class="h3" id="timeline-h">Build timeline<span class="disclosure__count source-line">· 5 entries</span></h2></summary>
+            <ol class="timeline">
+              <li class="timeline__item"><span class="timeline__when">2d ago</span><div><p class="timeline__title">Active development: 100+ commits in the last 90 days across 3 contributors</p><p class="timeline__source source-line">Code Activity · <span class="evidence"><span class="evidence__glyph" aria-hidden="true">◐</span>Source linked</span> · 9 active day(s) in ajanaku1/chit-app · <a href="https://github.com/ajanaku1/chit-app">View evidence</a></p></div></li>
+              <li class="timeline__item"><span class="timeline__when">4d ago</span><div><p class="timeline__title">Active development: 4 commits in the last 90 days across 1 contributor</p><p class="timeline__source source-line">Code Activity · <span class="evidence"><span class="evidence__glyph" aria-hidden="true">◐</span>Source linked</span> · 4 active day(s) in ajanaku1/chit · <a href="https://github.com/ajanaku1/chit">View evidence</a></p></div></li>
+              <li class="timeline__item"><span class="timeline__when">4d ago</span><div><p class="timeline__title">Active development: 4 commits in the last 90 days across 1 contributor</p><p class="timeline__source source-line">Code Activity · <span class="evidence"><span class="evidence__glyph" aria-hidden="true">◐</span>Source linked</span> · 4 active day(s) in ajanaku1/chit · <a href="https://github.com/ajanaku1/chit">View evidence</a></p></div></li>
+              <li class="timeline__item"><span class="timeline__when">20d ago</span><div><p class="timeline__title">Active development: 3 commits across 1 contributor</p><p class="timeline__source source-line">Code Activity · <span class="evidence"><span class="evidence__glyph" aria-hidden="true">◐</span>Source linked</span> · 3 active day(s) in ajanaku1/chit · <a href="https://github.com/ajanaku1/chit">View evidence</a></p></div></li>
+              <li class="timeline__item"><span class="timeline__when">3mo ago</span><div><p class="timeline__title">Active development: 9 commits across 1 contributor</p><p class="timeline__source source-line">Code Activity · <span class="evidence"><span class="evidence__glyph" aria-hidden="true">◐</span>Source linked</span> · 1 active day(s) in ajanaku1/the-pit · <a href="https://github.com/ajanaku1/the-pit">View evidence</a></p></div></li>
+            </ol>
+          </details>
+        </section>
+
+        <section aria-labelledby="token-h">
+          <h2 class="h2 ledger__foot" id="token-h">Tracked token</h2>
+          <div class="split">
+            <dl class="kv">
+              <div class="kv__row"><dt>Market status</dt><dd class="kv__text">Active market</dd><dd class="kv__note source-line">Market status read just now</dd></div>
+              <div class="kv__row"><dt>Launch stage</dt><dd class="kv__text">Trading in a DEX pool</dd></div>
+              <div class="kv__row"><dt>Verification</dt><dd class="kv__text">Token unverified</dd><dd class="kv__note source-line"><span class="evidence"><span class="evidence__glyph" aria-hidden="true">○</span>self reported</span> at submission · 0xd523…50d8</dd></div>
+              <div class="kv__row"><dt>Liquidity</dt><dd>$48K</dd></div>
+              <div class="kv__row"><dt>24h volume</dt><dd>$116K</dd></div>
+              <div class="kv__row"><dt>Highest liquidity HEY saw</dt><dd>$51K</dd></div>
+              <div class="kv__row"><dt>Pair age</dt><dd>17d ago</dd></div>
+              <div class="kv__row"><dt>On-chain events</dt><dd>1,011 in 24 h · 3,182 over 7 days</dd><dd class="kv__note source-line">read from the chain by HEY 23h ago</dd></div>
+              <div class="kv__row"><dt>Contract surface</dt><dd>6 methods called · 2 event types</dd><dd class="kv__note source-line">read from the chain by HEY 23h ago</dd></div>
+            </dl>
+            <div class="notes">
+              <h3 class="caption">Notes</h3>
+              <p>Events the contract emitted, read from the chain by HEY 23h ago.</p>
+              <p>This contract was self-reported at submission and has not been verified. Claiming the profile and publishing the address on the site would verify it.</p>
+              <p>Market status read just now. It never affects activity status or Build Momentum.</p>
+              <p><a href="https://dexscreener.com/robinhood/0x84a4f18cfab0b389a63c4d8a56d08f021a6fd5efb0b0b3617cfbbd6706f09f41">Market history, trading and checks</a></p>
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="notes-h">
+          <h2 class="h2" id="notes-h">Research notes</h2>
+          <p class="source-line ledger__foot">Written by HEY researchers and reviewed before publishing. Commentary with sources, not the project's own claims, and not evidence of shipping.</p>
+          <div class="empty ledger__foot">
+            <h3 class="h3">No published notes on Chit yet.</h3>
+            <p>Know something about Chit? <a href="account.html">Sign in with GitHub to submit a research note</a>. Notes are reviewed before they appear here.</p>
+          </div>
+        </section>
+      </div>
+
+      <aside class="project-aside" aria-label="Code activity, sources and intelligence">
+        <section aria-labelledby="code-h">
+          <h2 class="caption" id="code-h">Public code activity</h2>
+          <span class="num-xl">29</span>
+          <dl class="kv ledger__foot">
+            <div class="kv__row"><dt>Days with recorded activity</dt><dd>3 / 60</dd></div>
+            <div class="kv__row"><dt>Contributors</dt><dd>3</dd></div>
+            <div class="kv__row"><dt>Releases</dt><dd>0</dd></div>
+            <div class="kv__row"><dt>Last code update</dt><dd>2d ago</dd><dd class="kv__note source-line"><span class="evidence"><span class="evidence__glyph" aria-hidden="true">◐</span>source linked</span> · ajanaku1/chit-app</dd></div>
+          </dl>
+          <p class="source-line ledger__foot">Merged pull requests not measured; the remaining dimensions are reweighted rather than counted as zero.</p>
+          <details class="disclosure disclosure--section">
+            <summary>60-day code activity<span class="disclosure__count source-line">· 3 active days</span></summary>
+          <figure>
+            <div class="daygrid" role="img" aria-label="Last 60 days: activity on 08-27 (3 commits), 09-12 (4), 09-14 (100); all other days none">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="is-on" title="08-27 · 3 commits"></i><i></i><i></i><i></i><i></i><i></i>
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="is-on" title="09-12 · 4 commits"></i><i></i><i class="is-on" title="09-14 · 100 commits"></i><i></i><i></i>
+            </div>
+            <figcaption class="source-line ledger__foot">08-27 · 3 commits · 09-12 · 4 · 09-14 · 100 · all other days none</figcaption>
+            <p class="source-line">Observed development days. Commit volume is capped and never ranked.</p>
+          </figure>
+          </details>
+        </section>
+
+        <section id="sources" aria-labelledby="sources-h">
+          <h2 class="h2" id="sources-h">Sources</h2>
+          <dl class="kv kv--sources ledger__foot">
+            <div class="kv__row"><dt><a href="https://chit.tools/">https://chit.tools/</a></dt><dd class="source-line">Declared by the project</dd></div>
+            <div class="kv__row"><dt><a href="https://web-eta-teal-85.vercel.app">https://web-eta-teal-85.vercel.app</a></dt><dd class="source-line">Unverified</dd></div>
+            <div class="kv__row"><dt><a href="https://github.com/ajanaku1/chit">https://github.com/ajanaku1/chit</a></dt><dd class="source-line">Declared by the project</dd></div>
+            <div class="kv__row"><dt><a href="https://github.com/ajanaku1/chit-app">https://github.com/ajanaku1/chit-app</a></dt><dd class="source-line">Declared by the project</dd></div>
+            <div class="kv__row"><dt><a href="https://github.com/ajanaku1/the-pit">https://github.com/ajanaku1/the-pit</a></dt><dd class="source-line">Official</dd></div>
+            <div class="kv__row"><dt><a href="https://github.com/ajanaku1">https://github.com/ajanaku1</a></dt><dd class="source-line">Official</dd></div>
+            <div class="kv__row"><dt><a href="https://x.com/usechit">https://x.com/usechit</a></dt><dd class="source-line">Declared by the project</dd></div>
+            <div class="kv__row"><dt><a href="https://x.com/curioswhispers">https://x.com/curioswhispers</a></dt><dd class="source-line">Unverified</dd></div>
+            <div class="kv__row"><dt>Contract</dt><dd>0xd523…50d8</dd><dd class="kv__note source-line"><span class="evidence"><span class="evidence__glyph" aria-hidden="true">○</span>self reported</span> at submission · not yet verified</dd></div>
+          </dl>
+        </section>
+
+        <section aria-labelledby="intel-h">
+          <h2 class="h2" id="intel-h">Intelligence</h2>
+          <dl class="kv ledger__foot">
+            <div class="kv__row"><dt><a href="radar.html" data-prototype="missing">Builder Radar #134</a></dt><dd class="kv__note source-line">Development 33 · on-chain 84 · research 100 · overall 53</dd></div>
+            <div class="kv__row"><dt><span class="link-label">Liquidity higher</span><br>Liquidity $16K → $40K in a week</dt><dd class="source-line">1d ago</dd></div>
+          </dl>
+        </section>
+      </aside>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer ground-dots ground-dots--up">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <a class="brand" href="index.html" aria-label="HEY Research Lab, home">
+        <svg class="brand__mark" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 2h5v7h4V2h5v18h-5v-7H9v7H4z" fill="var(--accent)" stroke="var(--ink)" stroke-width="1"/></svg>
+        <span>HEY Research Lab<span class="brand__line">Robinhood Chain builder intelligence.</span></span>
+      </a>
+      <p class="site-footer__contract source-line">$HEY contract<br>0xB33eb16782776b4D738c0Fd643577cb0284Db610</p>
+      <p class="live live--static"><i class="live__dot" aria-hidden="true"></i>RH / 4663</p>
+    </div>
+    <div class="site-footer__group"><h2 class="caption">Discover</h2><ul><li><a href="explore.html">Explore</a></li><li><a href="explore.html">Ships</a></li><li><a href="explore.html">Pulse</a></li><li><a href="radar.html" data-prototype="missing">Radar</a></li><li><a href="signals.html" data-prototype="missing">Signals</a></li><li><a href="builders.html" data-prototype="missing">Builders</a></li><li><a href="weekly.html" data-prototype="missing">Weekly reports</a></li><li><a href="this-week.html" data-prototype="missing">This Week</a></li><li><a href="narratives.html" data-prototype="missing">Narratives</a></li><li><a href="map.html" data-prototype="missing">Map</a></li></ul></div>
+    <div class="site-footer__group"><h2 class="caption">Research</h2><ul><li><a href="hey.html">$HEY</a></li><li><a href="scan.html">Scout</a></li><li><a href="scan.html">Who built this?</a></li><li><a href="bounties.html" data-prototype="missing">Bounties</a></li><li><a href="submit.html" data-prototype="missing">Submit Project</a></li><li><a href="account.html">Watchlist</a></li><li><a href="updates.html" data-prototype="missing">Updates</a></li><li><a href="account.html">Account</a></li></ul></div>
+    <div class="site-footer__group"><h2 class="caption">About</h2><ul><li><a href="methodology.html">Methodology</a></li><li><a href="methodology.html">Docs</a></li><li><a href="methodology.html">API &amp; MCP</a></li><li><a href="status.html" data-prototype="missing">Status</a></li><li><a href="source.html" data-prototype="missing">Source</a></li><li><a href="https://x.com/HeyResearch">X</a></li></ul></div>
+  </div>
+</footer>
+
+<script>
+  /* Theme toggle. The <head> script already applied a stored choice before paint; this one re-reads it, sets data-theme on <html>,
+     flips it on click. No attribute stored = follow the system (the tokens' media query). */
+  (function () {
+    var root = document.documentElement, btn = document.querySelector('[data-theme-toggle]'), stored = null;
+    if (!btn) return;
+    try { stored = localStorage.getItem('hey-theme'); } catch (e) { stored = null; }
+    if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
+    function isDark() {
+      var t = root.getAttribute('data-theme');
+      if (t) return t === 'dark';
+      return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+    function paint() {
+      var d = isDark();
+      btn.setAttribute('aria-pressed', d ? 'true' : 'false');
+      btn.setAttribute('aria-label', d ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('hey-theme', next); } catch (e) {}
+      paint();
+    });
+    paint();
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+ai/
+.private/
+node_modules/
+.DS_Store
+.design-forge-state.json
+proposals/

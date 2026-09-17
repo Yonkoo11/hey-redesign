@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HEY Research Lab · Robinhood Chain builder intelligence</title>
+<script>
+  /* Theme before paint: apply a stored choice so the ground never flashes; the toggle script at the end of body owns the rest. */
+  try { var t = localStorage.getItem('hey-theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+<!-- The icon is HEY's own mark. -->
+<link rel="icon" href="assets/icon.png" type="image/png">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html" aria-label="HEY Research Lab, home">
+      <svg class="brand__mark" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 2h5v7h4V2h5v18h-5v-7H9v7H4z" fill="var(--accent)" stroke="var(--ink)" stroke-width="1"/></svg>
+      <span>HEY Research Lab<span class="brand__line">Robinhood Chain builder intelligence.</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="explore.html">Explore</a><a href="explore.html">Ships</a><a href="scan.html">Scout</a><a href="explore.html">Pulse</a><a href="hey.html">$HEY</a>
+    </nav>
+    <div class="site-header__actions">
+      <span class="live"><i class="live__dot" aria-hidden="true"></i>RH / 4663</span>
+      <a class="btn btn--ghost site-header__search" href="#q">Search</a>
+      <a class="btn btn--primary site-header__submit" href="submit.html" data-prototype="missing">Submit Project</a>
+      <a class="btn btn--secondary site-header__signin" href="account.html">Sign in</a>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme" data-theme-toggle><span class="theme-toggle__glyph" aria-hidden="true">◐</span></button>
+      <details class="site-menu">
+        <summary class="btn btn--secondary">Menu</summary>
+        <nav class="site-menu__panel" aria-label="Menu">
+          <a href="explore.html">Explore</a><a href="explore.html">Ships</a><a href="scan.html">Scout</a><a href="explore.html">Pulse</a><a href="hey.html">$HEY</a>
+          <a href="#q">Search</a><a href="submit.html" data-prototype="missing">Submit Project</a><a href="account.html">Sign in</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero ground-dots" aria-labelledby="hero-h">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <div class="hero__head">
+          <h1 class="display-lg" id="hero-h">Find who's <em>actually</em> building on Robinhood Chain.</h1>
+          <p class="hero__sub">Projects, builders and recent ships across RH / 4663.</p>
+        </div>
+        <form class="search-form" role="search" action="explore.html" method="get">
+          <label class="visually-hidden" for="q">Search project, ticker or contract</label>
+          <input class="input" id="q" name="q" type="search" placeholder="Search project, ticker or contract" autocomplete="off">
+          <button class="btn btn--primary" type="submit">Search</button>
+        </form>
+        <p class="hero__addr">Holding a contract address? <a href="scan.html">See who built it</a>. HEY reads the chain for it, even one it has never seen before.</p>
+      </div>
+
+      <figure class="card card--raised ships14" aria-labelledby="ships-h">
+        <h2 class="h3 ships14__title" id="ships-h">5,199 meaningful ships in 14 days</h2>
+        <div class="ships14__chart" role="img" aria-label="5199 meaningful ships over the last 14 days, peaking at 541 in a day">
+          <!-- Each bar links to the newest-first list because the public API has no per-day filter; the last bar is today, partial. -->
+          <div class="ships14__bars">
+            <a class="ships14__col" href="explore.html?sort=newest" title="3 Sep · 348 ships"><i style="--v:64.3"></i></a><a class="ships14__col" href="explore.html?sort=newest" title="4 Sep · 360 ships"><i style="--v:66.5"></i></a><a class="ships14__col" href="explore.html?sort=newest" title="5 Sep · 264 ships"><i style="--v:48.8"></i></a><a class="ships14__col" href="explore.html?sort=newest" title="6 Sep · 291 ships"><i style="--v:53.8"></i></a><a class="ships14__col" href="explore.html?sort=newest" title="7 Sep · 502 ships"><i style="--v:92.8"></i></a><a class="ships14__col" href="explore.html?sort=newest" title="8 Sep · 506 ships"><i style="--v:93.5"></i></a><a class="ships14__col" href="explore.html?sort=newest" title="9 Sep · 415 ships"><i style="--v:76.7"></i></a><a class="ships14__col" href="explore.html?sort=newest" title="10 Sep · 477 ships"><i style="--v:88.2"></i></a><a class="ships14__col" href="explore.html?sort=newest" title="11 Sep · 430 ships"><i style="--v:79.5"></i></a><a class="ships14__col" href="explore.html?sort=newest" title="12 Sep · 321 ships"><i style="--v:59.3"></i></a><a class="ships14__col" href="explore.html?sort=newest" title="13 Sep · 308 ships"><i style="--v:56.9"></i></a><a class="ships14__col ships14__col--peak" href="explore.html?sort=newest" title="14 Sep · 541 ships"><b class="ships14__peak">541</b><i style="--v:100"></i></a><a class="ships14__col" href="explore.html?sort=newest" title="15 Sep · 368 ships"><i style="--v:68"></i></a><a class="ships14__col" href="explore.html?sort=newest" title="16 Sep · 68 ships, today so far"><i style="--v:12.6"></i></a>
+          </div>
+          <div class="ships14__axis"><span>3 Sep</span><span>16 Sep · today, so far</span></div>
+        </div>
+        <figcaption class="source-line ships14__source">read from HEY's own records · updated 1m ago · <a href="methodology.html">How these are counted</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="container">
+      <section class="counters" aria-label="Index counters">
+        <div class="counter"><span class="caption">Builders</span><span class="num-display">741</span></div>
+        <div class="counter"><span class="caption">Shipped / 7d</span><span class="num-xl">208</span></div>
+        <div class="counter"><span class="caption">Active</span><span class="num-xl">500</span></div>
+        <p class="counters__provenance source-line"><span>Updated 1m ago</span><span aria-hidden="true">·</span><a href="methodology.html">How these are counted</a></p>
+      </section>
+    </div>
+  </section>
+
+  <section class="container section--tight" aria-labelledby="ledger-h">
+    <h2 class="visually-hidden" id="ledger-h">Verified builders</h2>
+    <div class="chip-row" role="group" aria-label="Filters, open Explore">
+      <a class="chip" href="explore.html" aria-current="true">Projects</a>
+      <a class="chip" href="explore.html?has=token">With a token</a>
+      <span class="chip-row__sep" aria-hidden="true"></span>
+      <a class="chip" href="explore.html" aria-current="true">All</a>
+      <a class="chip" href="explore.html?status=SHIPPING">Shipping</a>
+      <a class="chip" href="explore.html?status=ACTIVE">Active</a>
+      <a class="chip" href="explore.html?tab=still-building">Still Building</a>
+      <a class="chip" href="explore.html?tab=under-the-radar">Under the Radar</a>
+      <a class="chip" href="explore.html?tab=new-builders">New</a>
+      <span class="chip-row__sep" aria-hidden="true"></span>
+      <span class="source-line">Sort</span>
+      <a class="chip" href="explore.html" aria-current="true">Activity</a>
+      <a class="chip" href="explore.html?sort=newest">Newest</a>
+    </div>
+    <p class="text-2 ledger__foot">Twelve verified builders with a live market, drawn from the 60 most complete pages. A different twelve every few hours; the full list is on Explore.</p>
+
+    <div class="ledger ledger--logos" role="table" aria-label="Twelve verified builders">
+      <div class="ledger-row ledger-head" role="row">
+        <span class="cell-logo visually-hidden" role="columnheader">Logo</span>
+        <span class="cell-project" role="columnheader">Project · source line</span>
+        <span class="cell-source visually-hidden" role="columnheader">Source</span>
+        <span class="cell-status" role="columnheader">Status</span>
+        <span class="cell-ship" role="columnheader">Last ship</span>
+        <span class="cell-cap cell-num" role="columnheader">Market cap<span class="ledger-head__note">context, never ranks</span></span>
+        <span class="cell-evidence" role="columnheader">Evidence</span>
+      </div>
+
+      <div class="ledger-row" role="row">
+        <div class="cell-logo" role="cell"><img class="ledger__logo" src="https://heyresearch.xyz/apple-icon.png?5a717b8624016dc8" alt="" width="28" height="28" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-initials="HE"></div>
+        <div class="cell-project" role="cell"><a class="ledger__name" href="https://heyresearch.xyz/project/hey-research-lab" rel="noopener">Hey Research Lab</a><span class="ledger__meta">$HEY · Infrastructure</span><span class="ledger__line">Coordination token for HEY Research Lab, the builder-discovery layer for Robinhood Chain.</span></div>
+        <div class="cell-source source-line" role="cell">via Pons · 0xb33e…b610 · @HeyResearch</div>
+        <div class="cell-status" role="cell"><span class="status status--shipping"><span class="status__glyph" aria-hidden="true">●</span>Shipping</span></div>
+        <div class="cell-ship" role="cell">1d ago</div>
+        <div class="cell-cap cell-num" role="cell">$138K</div>
+        <div class="cell-evidence" role="cell"><span class="evidence"><span class="evidence__glyph" aria-hidden="true">◐</span>source linked</span></div>
+      </div>
+
+      <div class="ledger-row" role="row">
+        <div class="cell-logo" role="cell"><img class="ledger__logo" src="https://s3.ap-southeast-1.amazonaws.com/virtualprotocolcdn/96200_Project_Vex_ca4b84436d.png" alt="" width="28" height="28" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-initials="PR"></div>
+        <div class="cell-project" role="cell"><a class="ledger__name" href="https://heyresearch.xyz/project/projectvex" rel="noopener">ProjectVex</a><span class="ledger__meta">$VEX · AI Agents</span></div>
+        <div class="cell-source source-line" role="cell">via Virtuals · 0x8ff9…796b · @ProjectVEXai</div>
+        <div class="cell-status" role="cell"><span class="status status--shipping"><span class="status__glyph" aria-hidden="true">●</span>Shipping</span></div>
+        <div class="cell-ship" role="cell">5d ago</div>
+        <div class="cell-cap cell-num" role="cell">$3.2M</div>
+        <div class="cell-evidence" role="cell"><span class="evidence"><span class="evidence__glyph" aria-hidden="true">●</span>source verified</span></div>
+      </div>
+
+      <div class="ledger-row" role="row">
+        <div class="cell-logo" role="cell"><img class="ledger__logo" src="https://cdn.dexscreener.com/cms/images/4XWiD_6GGzzor5s6?width=64&amp;height=64&amp;fit=crop&amp;quality=95&amp;format=auto" alt="" width="28" height="28" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-initials="LU"></div>
+        <div class="cell-project" role="cell"><a class="ledger__name" href="https://heyresearch.xyz/project/lunar-foundation-model" rel="noopener">Lunar Foundation Model</a><span class="ledger__meta">$LUNAR</span><span class="ledger__line">Most thorough moon mapping model to date.</span></div>
+        <div class="cell-source source-line" role="cell">via Pons · 0x0805…e7de · @Lunar_Model</div>
+        <div class="cell-status" role="cell"><span class="status status--shipping"><span class="status__glyph" aria-hidden="true">●</span>Shipping</span></div>
+        <div class="cell-ship" role="cell">7d ago</div>
+        <div class="cell-cap cell-num" role="cell">$4.3K</div>
+        <div class="cell-evidence" role="cell"><span class="evidence"><span class="evidence__glyph" aria-hidden="true">◐</span>source linked</span></div>
+      </div>
+
+      <div class="ledger-row" role="row">
+        <div class="cell-logo" role="cell"><img class="ledger__logo" src="https://s3.ap-southeast-1.amazonaws.com/virtualprotocolcdn/102330_Fletcher_839704eaad.jpg" alt="" width="28" height="28" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-initials="FL"></div>
+        <div class="cell-project" role="cell"><a class="ledger__name" href="https://heyresearch.xyz/project/fletcher" rel="noopener">Fletcher</a><span class="ledger__meta">$FLETCHER · AI Agents</span><span class="ledger__line">Fletcher is the first EVM liquidity layer for graded collectible cards.</span></div>
+        <div class="cell-source source-line" role="cell">via Virtuals · 0x5f18…4716 · @Fletcher_cards</div>
+        <div class="cell-status" role="cell"><span class="status status--active"><span class="status__glyph" aria-hidden="true">◐</span>Active</span></div>
+        <div class="cell-ship" role="cell">20d ago</div>
+        <div class="cell-cap cell-num" role="cell">$58K</div>
+        <div class="cell-evidence" role="cell"><span class="evidence"><span class="evidence__glyph" aria-hidden="true">●</span>source verified</span></div>
+      </div>
+
+      <div class="ledger-row" role="row">
+        <div class="cell-logo" role="cell"><img class="ledger__logo" src="https://cdn.dexscreener.com/cms/images/Nr17Cn8uJi7NBQIN?width=64&amp;height=64&amp;fit=crop&amp;quality=95&amp;format=auto" alt="" width="28" height="28" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-initials="FA"></div>
+        <div class="cell-project" role="cell"><a class="ledger__name" href="https://heyresearch.xyz/project/fantom-troupe" rel="noopener">Fantom Troupe</a><span class="ledger__meta">$TROUPE</span><span class="ledger__line">Trading fees burn $USELESS.</span></div>
+        <div class="cell-source source-line" role="cell">via Pons · 0xafe9…ed12 · @mademen_family</div>
+        <div class="cell-status" role="cell"><span class="status status--shipping"><span class="status__glyph" aria-hidden="true">●</span>Shipping</span></div>
+        <div class="cell-ship" role="cell">5d ago</div>
+        <div class="cell-cap cell-num" role="cell">$8.3K</div>
+        <div class="cell-evidence" role="cell"><span class="evidence"><span class="evidence__glyph" aria-hidden="true">●</span>source verified</span></div>
+      </div>
+
+      <div class="ledger-row" role="row">
+        <div class="cell-logo" role="cell"><img class="ledger__logo" src="https://turquoise-blank-swallow-685.mypinata.cloud/ipfs/bafkreidndqit6ydpkivgmm4qdukh7sgv6uexjp3rc76iyvx22zd425ae7i" alt="" width="28" height="28" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-initials="OP"></div>
+        <div class="cell-project" role="cell"><a class="ledger__name" href="https://heyresearch.xyz/project/openzaps" rel="noopener">OpenZaps</a><span class="ledger__meta">$0xZAPS · Analytics</span><span class="ledger__line">OpenZaps turn approved DeFi workflows into sealed, immutable policy capsules a Hermes agent can simulate, submit, monitor, and revoke.</span></div>
+        <div class="cell-source source-line" role="cell">via Clanker · 0xdd90…cb07</div>
+        <div class="cell-status" role="cell"><span class="status status--active"><span class="status__glyph" aria-hidden="true">◐</span>Active</span></div>
+        <div class="cell-ship" role="cell">12d ago</div>
+        <div class="cell-cap cell-num" role="cell">$415K</div>
+        <div class="cell-evidence" role="cell"><span class="evidence"><span class="evidence__glyph" aria-hidden="true">◐</span>source linked</span></div>
+      </div>
+
+      <div class="ledger-row" role="row">
+        <div class="cell-logo" role="cell"><img class="ledger__logo" src="https://cdn.dexscreener.com/cms/images/K_QodAb8INf8__Ar?width=800&amp;height=800&amp;quality=95&amp;format=auto" alt="" width="28" height="28" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-initials="LA"></div>
+        <div class="cell-project" role="cell"><a class="ledger__name" href="https://heyresearch.xyz/project/laura-is-online" rel="noopener">LAURA Is Online</a><span class="ledger__meta">$LAURA</span><span class="ledger__line">LAURA is a 20 agent AI swarm with one mission, grow $STONKBROKER on Robinhood Chain.</span></div>
+        <div class="cell-source source-line" role="cell">via Unknown · 0x0492…1387</div>
+        <div class="cell-status" role="cell"><span class="status status--shipping"><span class="status__glyph" aria-hidden="true">●</span>Shipping</span></div>
+        <div class="cell-ship" role="cell">1d ago</div>
+        <div class="cell-cap cell-num" role="cell">$238K</div>
+        <div class="cell-evidence" role="cell"><span class="evidence"><span class="evidence__glyph" aria-hidden="true">◐</span>source linked</span></div>
+      </div>
+
+      <div class="ledger-row" role="row">
+        <div class="cell-logo" role="cell"><img class="ledger__logo" src="https://assets.geckoterminal.com/e96ctxmeoyf1mwqxtrzs7yf2p0su" alt="" width="28" height="28" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-initials="QU"></div>
+        <div class="cell-project" role="cell"><a class="ledger__name" href="https://heyresearch.xyz/project/quorum" rel="noopener">Quorum</a><span class="ledger__meta">$QUORUM · Utility</span><span class="ledger__line">A swarm of security lenses that never talk to each other.</span></div>
+        <div class="cell-source source-line" role="cell">via Pons · 0xa645…26b9 · @runquorum</div>
+        <div class="cell-status" role="cell"><span class="status status--shipping"><span class="status__glyph" aria-hidden="true">●</span>Shipping</span></div>
+        <div class="cell-ship" role="cell">2d ago</div>
+        <div class="cell-cap cell-num" role="cell">$17K</div>
+        <div class="cell-evidence" role="cell"><span class="evidence"><span class="evidence__glyph" aria-hidden="true">●</span>source verified</span></div>
+      </div>
+
+      <div class="ledger-row" role="row">
+        <div class="cell-logo" role="cell"><img class="ledger__logo" src="https://coin-images.coingecko.com/coins/images/54177/small/weth.png?1738632581" alt="" width="28" height="28" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-initials="FL"></div>
+        <div class="cell-project" role="cell"><a class="ledger__name" href="https://heyresearch.xyz/project/fleth" rel="noopener">flETH</a><span class="ledger__meta">$FLETH</span></div>
+        <div class="cell-source source-line" role="cell">via Unknown · 0x0000…0130 · @flaunchgg</div>
+        <div class="cell-status" role="cell"><span class="status status--active"><span class="status__glyph" aria-hidden="true">◐</span>Active</span></div>
+        <div class="cell-ship" role="cell">26d ago</div>
+        <div class="cell-cap cell-num" role="cell">$48K</div>
+        <div class="cell-evidence" role="cell"><span class="evidence"><span class="evidence__glyph" aria-hidden="true">●</span>source verified</span></div>
+      </div>
+
+      <div class="ledger-row" role="row">
+        <div class="cell-logo" role="cell"><img class="ledger__logo" src="https://s3.ap-southeast-1.amazonaws.com/virtualprotocolcdn/108011_Merrymen_eb9a3613ae.png" alt="" width="28" height="28" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-initials="ME"></div>
+        <div class="cell-project" role="cell"><a class="ledger__name" href="https://heyresearch.xyz/project/merrymen" rel="noopener">Merrymen</a><span class="ledger__meta">$MERRYMEN · AI Agents</span><span class="ledger__line">MERRYMEN, your own band of autonomous trading agents.</span></div>
+        <div class="cell-source source-line" role="cell">via Virtuals · 0xa15c…7b32</div>
+        <div class="cell-status" role="cell"><span class="status status--shipping"><span class="status__glyph" aria-hidden="true">●</span>Shipping</span></div>
+        <div class="cell-ship" role="cell">1d ago</div>
+        <div class="cell-cap cell-num" role="cell">$134K</div>
+        <div class="cell-evidence" role="cell"><span class="evidence"><span class="evidence__glyph" aria-hidden="true">●</span>source verified</span></div>
+      </div>
+
+      <div class="ledger-row" role="row">
+        <div class="cell-logo" role="cell"><img class="ledger__logo" src="https://coin-images.coingecko.com/coins/images/102175491/small/fy8vywsdpyv6zb2j7qtyt6u0dw24.?1786442622" alt="" width="28" height="28" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-initials="DO"></div>
+        <div class="cell-project" role="cell"><a class="ledger__name" href="https://heyresearch.xyz/project/dogbull" rel="noopener">DogBull</a><span class="ledger__meta">$DOGO · Animal Meme</span><span class="ledger__line">$DOGO is pure degen energy on Robinhood Chain.</span></div>
+        <div class="cell-source source-line" role="cell">via Unknown · 0x77b0…2356 · @Dogbullsxyz</div>
+        <div class="cell-status" role="cell"><span class="status status--quiet"><span class="status__glyph" aria-hidden="true">○</span>Quiet</span></div>
+        <div class="cell-ship" role="cell">1mo ago</div>
+        <div class="cell-cap cell-num" role="cell">$13M</div>
+        <div class="cell-evidence" role="cell"><span class="evidence"><span class="evidence__glyph" aria-hidden="true">●</span>source verified</span></div>
+      </div>
+
+      <div class="ledger-row" role="row">
+        <div class="cell-logo" role="cell"><img class="ledger__logo" src="https://cdn.dexscreener.com/cms/images/fVZQm2_9G7OS2QoW?width=64&amp;height=64&amp;fit=crop&amp;quality=95&amp;format=auto" alt="" width="28" height="28" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-initials="DE"></div>
+        <div class="cell-project" role="cell"><a class="ledger__name" href="https://heyresearch.xyz/project/desktop" rel="noopener">Desktop</a><span class="ledger__meta">$DESKTOP</span><span class="ledger__line">LAPTOP is for politicians. DESKTOP is for the people.</span></div>
+        <div class="cell-source source-line" role="cell">via DEX (Uniswap v4) · 0x3f2b…9182 · @Desktop_hunter_</div>
+        <div class="cell-status" role="cell"><span class="status status--active"><span class="status__glyph" aria-hidden="true">◐</span>Active</span></div>
+        <div class="cell-ship" role="cell">7d ago</div>
+        <div class="cell-cap cell-num" role="cell">$126K</div>
+        <div class="cell-evidence" role="cell"><span class="evidence"><span class="evidence__glyph" aria-hidden="true">●</span>source verified</span></div>
+      </div>
+    </div>
+
+    <p class="source-line ledger__foot">Market cap is context only and never changes activity status. Evidence is the grade of each project's latest ship, read from the public API on 2026-09-16 (○ self reported · ◐ source linked · ● source verified).</p>
+    <p class="source-line ledger__foot">Profiles open on heyresearch.xyz. The redesigned profile is built for one project, Chit: <a href="project.html">see it here</a>.</p>
+    <p class="text-2 ledger__foot">The front door shows verified builders whose tracked token still has a market, or no token at all. Everything else HEY lists is on Explore and on its own page.</p>
+    <p class="ledger__foot"><a class="btn btn--secondary" href="explore.html">Show more on Explore</a></p>
+    <script>
+      /* Logo fallback, the same rule as renderLogo() in app.js: a logo that fails to load becomes its initials in mono. */
+      document.querySelectorAll('img.ledger__logo[data-initials]').forEach(function (img) {
+        function swap() { var s = document.createElement('span'); s.className = 'ledger__logo ledger__logo--initials'; s.setAttribute('aria-hidden', 'true'); s.textContent = img.dataset.initials; img.replaceWith(s); }
+        if (img.complete && img.naturalWidth === 0) swap(); else img.addEventListener('error', swap);
+      });
+    </script>
+  </section>
+
+  <section class="container section" aria-labelledby="live-h">
+    <div class="section__head"><h2 class="h2" id="live-h">Live on Robinhood</h2><a class="btn btn--ghost btn--sm" href="explore.html">View all ships</a></div>
+    <div class="ledger" role="table" aria-label="Live on Robinhood">
+      <div class="ledger-row ledger-row--signal" role="row">
+        <div class="cell-project" role="cell"><strong>vektor-extension</strong><span class="ledger__line">VEKTOR v0.1.6</span></div>
+        <div class="cell-status source-line" role="cell">Github Release</div>
+        <div class="cell-ship source-line" role="cell">4h ago</div>
+      </div>
+      <div class="ledger-row ledger-row--signal" role="row">
+        <div class="cell-project" role="cell"><strong>orquestra</strong><span class="ledger__line">v0.4.82</span></div>
+        <div class="cell-status source-line" role="cell">Github Release</div>
+        <div class="cell-ship source-line" role="cell">5h ago</div>
+      </div>
+      <div class="ledger-row ledger-row--signal" role="row">
+        <div class="cell-project" role="cell"><strong>NetNet</strong><span class="ledger__line">Deployed a new contract: 0x455c…8c0d</span></div>
+        <div class="cell-status source-line" role="cell">Contract Deploy Followup</div>
+        <div class="cell-ship source-line" role="cell">5h ago</div>
+      </div>
+      <div class="ledger-row ledger-row--signal" role="row">
+        <div class="cell-project" role="cell"><strong>KyberNetwork</strong><span class="ledger__line">KyberSwap Interface - v7.9.6</span></div>
+        <div class="cell-status source-line" role="cell">Github Release</div>
+        <div class="cell-ship source-line" role="cell">6h ago</div>
+      </div>
+      <div class="ledger-row ledger-row--signal" role="row">
+        <div class="cell-project" role="cell"><strong>Agent-Layer</strong><span class="ledger__line">v0.1.110</span></div>
+        <div class="cell-status source-line" role="cell">Github Release</div>
+        <div class="cell-ship source-line" role="cell">7h ago</div>
+      </div>
+      <div class="ledger-row ledger-row--signal" role="row">
+        <div class="cell-project" role="cell"><strong>formatho website</strong><span class="ledger__line">Release v0.0.141</span></div>
+        <div class="cell-status source-line" role="cell">Github Release</div>
+        <div class="cell-ship source-line" role="cell">8h ago</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section" id="signal" aria-labelledby="signal-h">
+    <div class="section__head"><h2 class="caption" id="signal-h">HEY Signal</h2><a class="source-line" href="index.html#signal">All signals</a></div>
+    <div class="ledger" role="table" aria-label="HEY Signal">
+      <div class="ledger-row ledger-row--signal" role="row">
+        <div class="cell-project" role="cell"><strong>AMC Entertainment Holdings, Inc. • Robinhood Token</strong> <span class="ledger__meta">$amc</span></div>
+        <div class="cell-status" role="cell"><span class="status status--critical"><span class="status__glyph" aria-hidden="true">●</span>Liquidity no longer detected</span></div>
+        <div class="cell-ship source-line" role="cell">4h ago</div>
+      </div>
+      <div class="ledger-row ledger-row--signal" role="row">
+        <div class="cell-project" role="cell"><strong>OnlyPools</strong> <span class="ledger__meta">$0POOLS</span></div>
+        <div class="cell-status" role="cell"><span class="status status--critical"><span class="status__glyph" aria-hidden="true">●</span>Liquidity no longer detected</span></div>
+        <div class="cell-ship source-line" role="cell">7h ago</div>
+      </div>
+      <div class="ledger-row ledger-row--signal" role="row">
+        <div class="cell-project" role="cell"><strong>PrizeFight</strong> <span class="ledger__meta">$PRIZE</span></div>
+        <div class="cell-status" role="cell"><span class="status status--critical"><span class="status__glyph" aria-hidden="true">●</span>Liquidity no longer detected</span></div>
+        <div class="cell-ship source-line" role="cell">7h ago</div>
+      </div>
+      <div class="ledger-row ledger-row--signal" role="row">
+        <div class="cell-project" role="cell"><strong>Atlantis Coin</strong> <span class="ledger__meta">$atc</span></div>
+        <div class="cell-status" role="cell"><span class="status status--critical"><span class="status__glyph" aria-hidden="true">●</span>Liquidity no longer detected</span></div>
+        <div class="cell-ship source-line" role="cell">8h ago</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer ground-dots ground-dots--up">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <a class="brand" href="index.html" aria-label="HEY Research Lab, home">
+        <svg class="brand__mark" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 2h5v7h4V2h5v18h-5v-7H9v7H4z" fill="var(--accent)" stroke="var(--ink)" stroke-width="1"/></svg>
+        <span>HEY Research Lab<span class="brand__line">Robinhood Chain builder intelligence.</span></span>
+      </a>
+      <p class="site-footer__contract source-line">$HEY contract<br>0xB33eb16782776b4D738c0Fd643577cb0284Db610</p>
+      <p class="live live--static"><i class="live__dot" aria-hidden="true"></i>RH / 4663</p>
+    </div>
+    <div class="site-footer__group"><h2 class="caption">Discover</h2><ul><li><a href="explore.html">Explore</a></li><li><a href="explore.html">Ships</a></li><li><a href="explore.html">Pulse</a></li><li><a href="radar.html" data-prototype="missing">Radar</a></li><li><a href="signals.html" data-prototype="missing">Signals</a></li><li><a href="builders.html" data-prototype="missing">Builders</a></li><li><a href="weekly.html" data-prototype="missing">Weekly reports</a></li><li><a href="this-week.html" data-prototype="missing">This Week</a></li><li><a href="narratives.html" data-prototype="missing">Narratives</a></li><li><a href="map.html" data-prototype="missing">Map</a></li></ul></div>
+    <div class="site-footer__group"><h2 class="caption">Research</h2><ul><li><a href="hey.html">$HEY</a></li><li><a href="scan.html">Scout</a></li><li><a href="scan.html">Who built this?</a></li><li><a href="bounties.html" data-prototype="missing">Bounties</a></li><li><a href="submit.html" data-prototype="missing">Submit Project</a></li><li><a href="account.html">Watchlist</a></li><li><a href="updates.html" data-prototype="missing">Updates</a></li><li><a href="account.html">Account</a></li></ul></div>
+    <div class="site-footer__group"><h2 class="caption">About</h2><ul><li><a href="methodology.html">Methodology</a></li><li><a href="methodology.html">Docs</a></li><li><a href="methodology.html">API &amp; MCP</a></li><li><a href="status.html" data-prototype="missing">Status</a></li><li><a href="source.html" data-prototype="missing">Source</a></li><li><a href="https://x.com/HeyResearch">X</a></li></ul></div>
+  </div>
+</footer>
+
+<script>
+  /* Theme toggle. The <head> script already applied a stored choice before paint; this one re-reads it, sets data-theme on <html>,
+     flips it on click. No attribute stored = follow the system (the tokens' media query). */
+  (function () {
+    var root = document.documentElement, btn = document.querySelector('[data-theme-toggle]'), stored = null;
+    if (!btn) return;
+    try { stored = localStorage.getItem('hey-theme'); } catch (e) { stored = null; }
+    if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
+    function isDark() {
+      var t = root.getAttribute('data-theme');
+      if (t) return t === 'dark';
+      return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+    function paint() {
+      var d = isDark();
+      btn.setAttribute('aria-pressed', d ? 'true' : 'false');
+      btn.setAttribute('aria-label', d ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('hey-theme', next); } catch (e) {}
+      paint();
+    });
+    paint();
+  })();
+</script>
+</body>
+</html>

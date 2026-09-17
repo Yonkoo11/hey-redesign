@@ -1,0 +1,164 @@
+/* HEY Research Lab redesign: design tokens in three tiers (base scale, semantic meaning, component usage).
+   The accent lime comes from HEY's own icon. */
+:root {
+  /* BASE: brand */
+  --lime-500: #c0f800;   /* the mark */
+  --lime-600: #a8dc00;
+  --lime-700: #6f9a00;
+  --lime-800: #4f6b00;   /* accent as TEXT on paper (5.6:1 on --paper) */
+  --lime-900: #34470a;
+  /* BASE: warm grays (oklch hue 85, chroma 0.006-0.01) */
+  --g-0:   #fbfaf6;
+  --g-50:  #f4f3ed;
+  --g-100: #ecebe3;
+  --g-200: #e0dfd5;
+  --g-300: #cfcdc2;
+  --g-400: #a9a89c;
+  --g-500: #86857a;
+  --g-600: #66655c;
+  --g-700: #52514a;
+  --g-800: #34342e;
+  --g-900: #232320;
+  --g-950: #141410;
+  /* BASE: status hues (four steps). Never the only carrier of meaning. */
+  --green-600: #1f7a3a; --green-400: #5bd37a;
+  --amber-600: #8f5a10; --amber-400: #f0b950;
+  --red-600:   #b8352c; --red-400:   #f07a70;
+
+  /* SEMANTIC: colour, light (primary) */
+  --paper:            var(--g-50);
+  --bg:               var(--paper);
+  --bg-elev-1:        var(--g-0);
+  --bg-elev-2:        #fdfdfa;
+  --bg-sunken:        var(--g-100);
+  --ink:              var(--g-950);
+  --text:             var(--ink);
+  --text-2:           var(--g-700);
+  --text-3:           var(--g-600);
+  --hairline:         var(--g-200);
+  --border:           var(--g-300);
+  --accent:           var(--lime-500);
+  --accent-hover:     var(--lime-600);
+  --accent-text:      var(--lime-800);
+  --accent-ink:       var(--ink);            /* text placed ON an accent fill */
+  --accent-a55:       color-mix(in oklab, var(--lime-500) 55%, transparent);
+  --accent-a32:       color-mix(in oklab, var(--lime-500) 32%, transparent);
+  --accent-a12:       color-mix(in oklab, var(--lime-500) 12%, transparent);
+  --accent-a6:        color-mix(in oklab, var(--lime-500) 6%, transparent);
+  --ring:             var(--lime-700);
+  --status-shipping:  var(--green-600);
+  --status-active:    color-mix(in oklab, var(--green-600) 55%, var(--g-500));
+  --status-quiet:     var(--amber-600);
+  --status-dormant:   var(--g-500);
+  --status-critical:  var(--red-600);
+  --dot-ink:          color-mix(in oklab, var(--ink) 10%, transparent);   /* dotted grid texture */
+  --shadow-color:     20 20 16;
+
+  /* SEMANTIC: type */
+  --font-display: "Newsreader", "Iowan Old Style", Baskerville, "Times New Roman", serif;
+  --font-sans:    "Schibsted Grotesk", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --font-mono:    "Fragment Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  /* ladder, ratio 1.125 (dense UI), dashboard-rules ramp */
+  --text-caption: 11px; --text-sm: 13px; --text-body: 14px; --text-read: 16px; --text-h3: 18px;
+  --text-h2: 22px; --text-h1: 32px;
+  --text-display: clamp(40px, 3.2vw + 24px, 64px);
+  --text-display-lg: clamp(48px, 5vw + 16px, 88px);
+  --num-md: 18px; --num-lg: 28px; --num-xl: 40px;
+  --num-display: clamp(56px, 6vw + 16px, 112px);
+  --lh-tight: 1.1; --lh-heading: 1.2; --lh-label: 1.3; --lh-body: 1.55; --lh-read: 1.6;
+  --track-display: -0.02em; --track-heading: -0.01em; --track-caption: 0.06em;
+
+  /* SEMANTIC: space (4px base) */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px; --s-8: 32px;
+  --s-10: 40px; --s-12: 48px; --s-16: 64px; --s-20: 80px; --s-24: 96px;
+
+  /* SEMANTIC: radius by role */
+  --radius-control: 6px; --radius-card: 10px; --radius-overlay: 14px; --radius-full: 9999px;
+
+  /* SEMANTIC: elevation (soft ladder, downward, neutral) */
+  --shadow-xs: 0 1px 2px rgb(var(--shadow-color) / 0.05);
+  --shadow-sm: 0 1px 2px rgb(var(--shadow-color) / 0.05), 0 2px 6px rgb(var(--shadow-color) / 0.05);
+  --shadow-md: 0 2px 4px rgb(var(--shadow-color) / 0.04), 0 8px 16px rgb(var(--shadow-color) / 0.07);
+  --shadow-lg: 0 4px 8px rgb(var(--shadow-color) / 0.05), 0 16px 32px rgb(var(--shadow-color) / 0.10);
+  --inset-top: inset 0 1px 0 rgb(255 255 255 / 0.6);
+
+  /* SEMANTIC: motion */
+  --d-instant: 100ms; --d-fast: 150ms; --d-base: 200ms; --d-slow: 300ms; --d-enter: 320ms; --d-chart: 600ms;
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-out-strong: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --t-color: color var(--d-fast) var(--ease-out), background-color var(--d-fast) var(--ease-out), border-color var(--d-fast) var(--ease-out);
+  --t-lift: transform var(--d-base) var(--ease-out-strong), box-shadow var(--d-base) var(--ease-out);
+
+  /* SEMANTIC: z */
+  --z-sticky: 40; --z-overlay: 50; --z-modal: 60;
+
+  /* COMPONENT */
+  --content-max: 1280px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --header-h: 64px;
+  --button-h: 40px; --button-radius: var(--radius-control); --button-px: var(--s-4);
+  --input-h: 44px;  --input-font: var(--text-read);
+  --card-pad: var(--s-6); --card-radius: var(--radius-card);
+  --hit: 44px;
+}
+
+/* DARK: warm near-black elevation ramp, not an inversion. Shadows recalibrated, accent kept (lime reads 13:1 on #141410). */
+:root[data-theme="dark"] {
+  --bg:            var(--g-950);
+  --bg-elev-1:     #1c1c17;
+  --bg-elev-2:     #24241e;
+  --bg-sunken:     #0f0f0c;
+  --text:          #f0f0e8;
+  --text-2:        #b5b5a8;
+  --text-3:        #85857a;
+  --hairline:      #2a2a24;
+  --border:        #3d3d34;
+  --accent-text:   var(--lime-500);
+  --accent-a55:    color-mix(in oklab, var(--lime-500) 45%, transparent);
+  --accent-a32:    color-mix(in oklab, var(--lime-500) 26%, transparent);
+  --accent-a12:    color-mix(in oklab, var(--lime-500) 12%, transparent);
+  --accent-a6:     color-mix(in oklab, var(--lime-500) 7%, transparent);
+  --ring:          var(--lime-500);
+  --status-shipping: var(--green-400);
+  --status-active:   color-mix(in oklab, var(--green-400) 60%, var(--g-400));
+  --status-quiet:    var(--amber-400);
+  --status-dormant:  var(--g-400);
+  --status-critical: var(--red-400);
+  --dot-ink:       rgb(240 240 232 / 0.09);
+  --shadow-color:  0 0 0;
+  --shadow-xs: 0 1px 2px rgb(var(--shadow-color) / 0.35);
+  --shadow-sm: 0 1px 2px rgb(var(--shadow-color) / 0.35), 0 2px 6px rgb(var(--shadow-color) / 0.35);
+  --shadow-md: 0 2px 4px rgb(var(--shadow-color) / 0.35), 0 8px 16px rgb(var(--shadow-color) / 0.45);
+  --shadow-lg: 0 4px 8px rgb(var(--shadow-color) / 0.4), 0 16px 32px rgb(var(--shadow-color) / 0.55);
+  --inset-top: inset 0 1px 0 rgb(255 255 255 / 0.05);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: var(--g-950); --bg-elev-1: #1c1c17; --bg-elev-2: #24241e; --bg-sunken: #0f0f0c;
+    --text: #f0f0e8; --text-2: #b5b5a8; --text-3: #85857a; --hairline: #2a2a24; --border: #3d3d34;
+    --accent-text: var(--lime-500);
+    --accent-a55: color-mix(in oklab, var(--lime-500) 45%, transparent);
+    --accent-a32: color-mix(in oklab, var(--lime-500) 26%, transparent);
+    --accent-a12: color-mix(in oklab, var(--lime-500) 12%, transparent);
+    --accent-a6:  color-mix(in oklab, var(--lime-500) 7%, transparent);
+    --ring: var(--lime-500);
+    --status-shipping: var(--green-400);
+    --status-active: color-mix(in oklab, var(--green-400) 60%, var(--g-400));
+    --status-quiet: var(--amber-400); --status-dormant: var(--g-400); --status-critical: var(--red-400);
+    --dot-ink: rgb(240 240 232 / 0.09);
+    --shadow-color: 0 0 0;
+    --shadow-xs: 0 1px 2px rgb(var(--shadow-color) / 0.35);
+    --shadow-sm: 0 1px 2px rgb(var(--shadow-color) / 0.35), 0 2px 6px rgb(var(--shadow-color) / 0.35);
+    --shadow-md: 0 2px 4px rgb(var(--shadow-color) / 0.35), 0 8px 16px rgb(var(--shadow-color) / 0.45);
+    --shadow-lg: 0 4px 8px rgb(var(--shadow-color) / 0.4), 0 16px 32px rgb(var(--shadow-color) / 0.55);
+    --inset-top: inset 0 1px 0 rgb(255 255 255 / 0.05);
+  }
+}
+
+/* BASELINE BEHAVIOUR */
+:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--ring); }
+.num, [data-num] { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

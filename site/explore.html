@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Explore Builders · HEY Research Lab</title>
+<script>
+  /* Theme before paint: apply a stored choice so the ground never flashes; the toggle script at the end of body owns the rest. */
+  try { var t = localStorage.getItem('hey-theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+<!-- The icon is HEY's own mark. -->
+<link rel="icon" href="assets/icon.png" type="image/png">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Explore, page-scoped: compact hero, filter groups inside "More filters",
+     and the filter groups. Reads tokens and styles.css derived values only. */
+  .hero--compact { padding-block: var(--s-10) var(--s-6); }
+  .hero--compact .search-form { margin-top: var(--s-6); }
+  .hero--compact .counters { margin-top: var(--s-10); }
+  .filters { display: grid; gap: var(--s-3); padding-block: var(--s-6) var(--s-2); }
+  .filters .disclosure { margin-top: 0; max-width: none; }
+  .filter-group { display: grid; gap: var(--s-2); padding-block: var(--s-3); border-bottom: var(--rule); }
+  .filter-group:last-of-type { border-bottom: 0; }
+  .skeleton-row .skeleton { margin: 0; }
+  /* secondary chips inside "More filters": smaller than the primary row so it keeps hierarchy; the ::after hit area stays 44px */
+  .disclosure__body .chip { --btn-h: calc(var(--s-6) + var(--s-1)); font-size: var(--text-sm); padding: var(--s-1) var(--s-3); }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html" aria-label="HEY Research Lab, home">
+      <svg class="brand__mark" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 2h5v7h4V2h5v18h-5v-7H9v7H4z" fill="var(--accent)" stroke="var(--ink)" stroke-width="1"/></svg>
+      <span>HEY Research Lab<span class="brand__line">Robinhood Chain builder intelligence.</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="explore.html" aria-current="page">Explore</a><a href="explore.html">Ships</a><a href="scan.html">Scout</a><a href="explore.html">Pulse</a><a href="hey.html">$HEY</a>
+    </nav>
+    <div class="site-header__actions">
+      <span class="live"><i class="live__dot" aria-hidden="true"></i>RH / 4663</span>
+      <a class="btn btn--ghost site-header__search" href="#q">Search</a>
+      <a class="btn btn--primary site-header__submit" href="submit.html" data-prototype="missing">Submit Project</a>
+      <a class="btn btn--secondary site-header__signin" href="account.html">Sign in</a>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme" data-theme-toggle><span class="theme-toggle__glyph" aria-hidden="true">◐</span></button>
+      <details class="site-menu">
+        <summary class="btn btn--secondary">Menu</summary>
+        <nav class="site-menu__panel" aria-label="Menu">
+          <a href="explore.html">Explore</a><a href="explore.html">Ships</a><a href="scan.html">Scout</a><a href="explore.html">Pulse</a><a href="hey.html">$HEY</a>
+          <a href="#q">Search</a><a href="submit.html" data-prototype="missing">Submit Project</a><a href="account.html">Sign in</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero hero--compact ground-dots" aria-labelledby="explore-h">
+    <div class="container">
+      <div class="hero__head">
+        <h1 class="display" id="explore-h">Explore Robinhood Chain.</h1>
+        <p class="hero__sub">Every project HEY tracks, and what each of them shipped most recently.</p>
+      </div>
+      <form class="search-form" role="search" action="explore.html" method="get">
+        <label class="visually-hidden" for="q">Search this list by project, ticker or contract</label>
+        <input class="input" id="q" name="q" type="search" placeholder="Search this list by project, ticker or contract" autocomplete="off">
+        <button class="btn btn--primary" type="submit">Search</button>
+      </form>
+
+      <section class="counters counters--five" aria-label="Index counters">
+        <div class="counter"><span class="caption">Builders</span><span class="num-display">741</span></div>
+        <div class="counter"><span class="caption">Shipped / 7d</span><span class="num-xl">208</span></div>
+        <div class="counter"><span class="caption">Active</span><span class="num-xl">500</span></div>
+        <div class="counter"><span class="caption">Projects</span><span class="num-xl">11,492</span></div>
+        <figure class="counters__strip">
+          <div class="strip14" role="img" aria-label="5199 meaningful ships over the last 14 days, peaking at 541 in a day"><i style="--v:64.3"></i><i style="--v:66.5"></i><i style="--v:48.8"></i><i style="--v:53.8"></i><i style="--v:92.8"></i><i style="--v:93.5"></i><i style="--v:76.7"></i><i style="--v:88.2"></i><i style="--v:79.5"></i><i style="--v:59.3"></i><i style="--v:56.9"></i><i style="--v:100"></i><i style="--v:68"></i><i style="--v:12.6"></i></div>
+          <figcaption class="source-line">Ships / 14d · 5,199 meaningful ships, peak 541</figcaption>
+        </figure>
+        <p class="counters__provenance source-line"><span>Updated 1m ago</span><span aria-hidden="true">·</span><a href="methodology.html">How these are counted</a></p>
+      </section>
+    </div>
+  </section>
+
+  <section class="container" aria-labelledby="filters-h">
+    <h2 class="visually-hidden" id="filters-h">Filters</h2>
+    <div class="filters">
+      <div class="chip-row" role="group" aria-label="Filters">
+        <button class="chip" type="button" aria-pressed="true" data-group="has" data-param="has" data-value="">Projects</button>
+        <button class="chip" type="button" aria-pressed="false" data-group="has" data-param="has" data-value="token">With a token</button>
+        <span class="chip-row__sep" aria-hidden="true"></span>
+        <button class="chip" type="button" aria-pressed="true" data-group="view" data-param="status" data-value="">All</button>
+        <button class="chip" type="button" aria-pressed="false" data-group="view" data-param="status" data-value="SHIPPING">Shipping</button>
+        <button class="chip" type="button" aria-pressed="false" data-group="view" data-param="status" data-value="ACTIVE">Active</button>
+        <button class="chip" type="button" aria-pressed="false" data-group="view" data-param="tab" data-value="still-building">Still Building</button>
+        <button class="chip" type="button" aria-pressed="false" data-group="view" data-param="tab" data-value="under-the-radar">Under the Radar</button>
+        <button class="chip" type="button" aria-pressed="false" data-group="view" data-param="tab" data-value="new-builders">New</button>
+        <span class="chip-row__sep" aria-hidden="true"></span>
+        <span class="source-line">Sort</span>
+        <button class="chip" type="button" aria-pressed="true" data-group="sort" data-param="sort" data-value="">Activity</button>
+        <button class="chip" type="button" aria-pressed="false" data-group="sort" data-param="sort" data-value="newest">Newest</button>
+      </div>
+
+      <details class="disclosure">
+        <summary>More filters</summary>
+        <div class="disclosure__body">
+          <div class="filter-group" role="group" aria-labelledby="f-type">
+            <span class="field__label" id="f-type">Project type</span>
+            <div class="chip-row">
+              <button class="chip" type="button" aria-pressed="true" data-group="kind" data-param="kind" data-value="">Any</button><button class="chip" type="button" aria-pressed="false" data-group="kind" data-param="kind" data-value="UTILITY">Utility</button><button class="chip" type="button" aria-pressed="false" data-group="kind" data-param="kind" data-value="MEME">Meme</button>
+            </div>
+          </div>
+          <div class="filter-group" role="group" aria-labelledby="f-narrative">
+            <span class="field__label" id="f-narrative">Narrative</span>
+            <div class="chip-row">
+              <button class="chip" type="button" aria-pressed="true" data-group="narrative" data-param="narrative" data-value="">Any</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="ai">AI</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="ai-agents">AI Agents</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="agentic-finance">Agentic Finance</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="analytics">Analytics</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="animal-meme">Animal Meme</button>
+              <button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="culture-meme">Culture Meme</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="dex">DEX</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="data">Data</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="desci">DeSci</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="devtools">Dev Tools</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="gaming">Gaming</button>
+              <button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="infrastructure">Infrastructure</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="launchpad">Launchpad</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="lending">Lending</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="meme">Meme</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="other">Other</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="payments">Payments</button>
+              <button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="perps">Perps</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="rwa">RWA</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="client:narrativeName" data-value="RWA Yield">RWA Yield</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="client:narrativeName" data-value="Robinhood Chain Native">Robinhood Chain Native</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="social">Social</button><button class="chip" type="button" aria-pressed="false" data-group="narrative" data-param="narrative" data-value="stockfi">StockFi</button>
+            </div>
+          </div>
+          <div class="filter-group" role="group" aria-labelledby="f-status">
+            <span class="field__label" id="f-status">Activity status</span>
+            <div class="chip-row">
+              <button class="chip" type="button" aria-pressed="true" data-group="status" data-param="status" data-value="">Any</button><button class="chip" type="button" aria-pressed="false" data-group="status" data-param="status" data-value="SHIPPING">Shipping</button><button class="chip" type="button" aria-pressed="false" data-group="status" data-param="status" data-value="ACTIVE">Active</button><button class="chip" type="button" aria-pressed="false" data-group="status" data-param="status" data-value="QUIET">Quiet</button><button class="chip" type="button" aria-pressed="false" data-group="status" data-param="status" data-value="DORMANT">Dormant</button><button class="chip" type="button" aria-pressed="false" data-group="status" data-param="status" data-value="RESUMED">Resumed</button><button class="chip" type="button" aria-pressed="false" data-group="status" data-param="status" data-value="UNKNOWN">Unknown</button>
+            </div>
+          </div>
+          <div class="filter-group" role="group" aria-labelledby="f-launchpad">
+            <span class="field__label" id="f-launchpad">Launchpad</span>
+            <div class="chip-row">
+              <button class="chip" type="button" aria-pressed="true" data-group="launchpad" data-param="launchpad" data-value="">Any</button><button class="chip" type="button" aria-pressed="false" data-group="launchpad" data-param="launchpad" data-value="clanker">Clanker</button><button class="chip" type="button" aria-pressed="false" data-group="launchpad" data-param="launchpad" data-value="virtuals">Virtuals</button><button class="chip" type="button" aria-pressed="false" data-group="launchpad" data-param="launchpad" data-value="pons">Pons</button><button class="chip" type="button" aria-pressed="false" data-group="launchpad" data-param="launchpad" data-value="pairfund">PAIR</button><button class="chip" type="button" aria-pressed="false" data-group="launchpad" data-param="launchpad" data-value="hoodfun">hood.fun</button><button class="chip" type="button" aria-pressed="false" data-group="launchpad" data-param="launchpad" data-value="easya-kickstart">EasyA Kickstart</button>
+              <button class="chip" type="button" aria-pressed="false" data-group="launchpad" data-param="launchpad" data-value="bankr">Bankr</button><button class="chip" type="button" aria-pressed="false" data-group="launchpad" data-param="launchpad" data-value="hoodit">Hoodit</button><button class="chip" type="button" aria-pressed="false" data-group="launchpad" data-param="client:launchpadName" data-value="Robinhood">Robinhood</button><button class="chip" type="button" aria-pressed="false" data-group="launchpad" data-param="launchpad" data-value="hooddev">hood.dev</button><button class="chip" type="button" aria-pressed="false" data-group="launchpad" data-param="launchpad" data-value="flap">Flap</button><button class="chip" type="button" aria-pressed="false" data-group="launchpad" data-param="launchpad" data-value="poolstrade">Pools</button><button class="chip" type="button" aria-pressed="false" data-group="launchpad" data-param="launchpad" data-value="ponspad">PonsPad</button>
+            </div>
+          </div>
+          <div class="filter-group" role="group" aria-labelledby="f-cap">
+            <span class="field__label" id="f-cap">Market cap under</span>
+            <div class="chip-row">
+              <button class="chip" type="button" aria-pressed="true" data-group="cap" data-param="maxMarketCap" data-value="">Any</button><button class="chip" type="button" aria-pressed="false" data-group="cap" data-param="maxMarketCap" data-value="25000">$25K</button><button class="chip" type="button" aria-pressed="false" data-group="cap" data-param="maxMarketCap" data-value="100000">$100K</button><button class="chip" type="button" aria-pressed="false" data-group="cap" data-param="maxMarketCap" data-value="1000000">$1M</button>
+            </div>
+          </div>
+          <div class="filter-group" role="group" aria-labelledby="f-deployed" hidden>
+            <span class="field__label" id="f-deployed">Deployed</span>
+            <div class="chip-row">
+              <button class="chip" type="button" aria-pressed="true" data-group="deployed" data-param="none:deployed" data-value="">Any</button><button class="chip" type="button" aria-pressed="false" data-group="deployed" data-param="none:deployed" data-value="day">In the last day</button><button class="chip" type="button" aria-pressed="false" data-group="deployed" data-param="none:deployed" data-value="week">In the last week</button><button class="chip" type="button" aria-pressed="false" data-group="deployed" data-param="none:deployed" data-value="month">In the last 30 days</button><button class="chip" type="button" aria-pressed="false" data-group="deployed" data-param="none:deployed" data-value="older">More than 30 days ago</button>
+            </div>
+          </div>
+          <div class="filter-group" role="group" aria-labelledby="f-level">
+            <span class="field__label" id="f-level">Research level</span>
+            <div class="chip-row">
+              <button class="chip" type="button" aria-pressed="true" data-group="level" data-param="client:level" data-value="">All levels</button><button class="chip" type="button" aria-pressed="false" data-group="level" data-param="client:level" data-value="VERIFIED_BUILDER">Verified builders</button><button class="chip" type="button" aria-pressed="false" data-group="level" data-param="client:level" data-value="RESEARCHED">Enriched only</button><button class="chip" type="button" aria-pressed="false" data-group="level" data-param="client:level" data-value="INDEXED">Indexed only</button>
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="container section--tight" aria-labelledby="ledger-h">
+    <h2 class="visually-hidden" id="ledger-h">Projects</h2>
+
+    <!-- Rows are rendered by app.js from https://heyresearch.xyz/api/projects, with data/projects.json as the fallback when the API does not answer; renderRow() is the one source of the row markup. -->
+    <div class="ledger ledger--logos" role="table" aria-label="Projects" aria-busy="true" data-ledger>
+      <div class="ledger-row ledger-head" role="row">
+        <span class="cell-logo visually-hidden" role="columnheader">Logo</span>
+        <span class="cell-project" role="columnheader">Project · source line</span>
+        <span class="cell-source visually-hidden" role="columnheader">Source</span>
+        <span class="cell-status" role="columnheader">Status</span>
+        <span class="cell-ship" role="columnheader">Last ship</span>
+        <span class="cell-cap cell-num" role="columnheader">Market cap<span class="ledger-head__note">context, never ranks</span></span>
+        <span class="cell-evidence" role="columnheader">Evidence</span>
+      </div>
+      <div class="ledger-row skeleton-row" aria-hidden="true">
+        <div class="cell-logo"><span class="skeleton skeleton--logo"></span></div>
+        <div class="cell-project"><span class="skeleton skeleton--line"></span></div>
+        <div class="cell-source"><span class="skeleton skeleton--line-sm"></span></div>
+        <div class="cell-status"><span class="skeleton skeleton--label"></span></div>
+        <div class="cell-ship"><span class="skeleton skeleton--label"></span></div>
+        <div class="cell-cap"><span class="skeleton skeleton--num"></span></div>
+        <div class="cell-evidence"><span class="skeleton skeleton--label"></span></div>
+      </div>
+      <div class="ledger-row skeleton-row" aria-hidden="true">
+        <div class="cell-logo"><span class="skeleton skeleton--logo"></span></div>
+        <div class="cell-project"><span class="skeleton skeleton--line"></span></div>
+        <div class="cell-source"><span class="skeleton skeleton--line-sm"></span></div>
+        <div class="cell-status"><span class="skeleton skeleton--label"></span></div>
+        <div class="cell-ship"><span class="skeleton skeleton--label"></span></div>
+        <div class="cell-cap"><span class="skeleton skeleton--num"></span></div>
+        <div class="cell-evidence"><span class="skeleton skeleton--label"></span></div>
+      </div>
+    </div>
+
+    <div class="empty" role="status" data-empty hidden>
+      <h3 class="h3">Nothing matches these filters.</h3>
+      <p>HEY has not indexed a project that fits every filter you set. Clear one and the ledger fills again.</p>
+      <button class="btn btn--secondary empty__action" type="button">Clear filters</button>
+    </div>
+
+    <div class="error-line" role="alert" data-error hidden>
+      <i class="error-line__dot" aria-hidden="true"></i><span>heyresearch.xyz/api did not answer and the snapshot could not be read.</span>
+      <button class="btn btn--secondary btn--sm" type="button">Retry</button>
+    </div>
+
+    <p class="source-line ledger__provenance" role="status" aria-live="polite" data-provenance>Reading heyresearch.xyz/api…</p>
+    <p class="source-line ledger__provenance" data-client-note hidden></p>
+    <p class="source-line ledger__provenance">Profiles open on heyresearch.xyz. The redesigned profile is built for one project, Chit: <a href="project.html">see it here</a>.</p>
+    <p class="ledger__more"><button class="btn btn--secondary" type="button" data-more hidden>Load 48 more</button></p>
+    <p class="source-line ledger__foot">Market cap is context only and never changes activity status. Evidence is the project's research level from the public API; the per-ship grade is on each project's own page.</p>
+  </section>
+</main>
+
+<footer class="site-footer ground-dots ground-dots--up">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <a class="brand" href="index.html" aria-label="HEY Research Lab, home">
+        <svg class="brand__mark" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 2h5v7h4V2h5v18h-5v-7H9v7H4z" fill="var(--accent)" stroke="var(--ink)" stroke-width="1"/></svg>
+        <span>HEY Research Lab<span class="brand__line">Robinhood Chain builder intelligence.</span></span>
+      </a>
+      <p class="site-footer__contract source-line">$HEY contract<br>0xB33eb16782776b4D738c0Fd643577cb0284Db610</p>
+      <p class="live live--static"><i class="live__dot" aria-hidden="true"></i>RH / 4663</p>
+    </div>
+    <div class="site-footer__group"><h2 class="caption">Discover</h2><ul><li><a href="explore.html">Explore</a></li><li><a href="explore.html">Ships</a></li><li><a href="explore.html">Pulse</a></li><li><a href="radar.html" data-prototype="missing">Radar</a></li><li><a href="signals.html" data-prototype="missing">Signals</a></li><li><a href="builders.html" data-prototype="missing">Builders</a></li><li><a href="weekly.html" data-prototype="missing">Weekly reports</a></li><li><a href="this-week.html" data-prototype="missing">This Week</a></li><li><a href="narratives.html" data-prototype="missing">Narratives</a></li><li><a href="map.html" data-prototype="missing">Map</a></li></ul></div>
+    <div class="site-footer__group"><h2 class="caption">Research</h2><ul><li><a href="hey.html">$HEY</a></li><li><a href="scan.html">Scout</a></li><li><a href="scan.html">Who built this?</a></li><li><a href="bounties.html" data-prototype="missing">Bounties</a></li><li><a href="submit.html" data-prototype="missing">Submit Project</a></li><li><a href="account.html">Watchlist</a></li><li><a href="updates.html" data-prototype="missing">Updates</a></li><li><a href="account.html">Account</a></li></ul></div>
+    <div class="site-footer__group"><h2 class="caption">About</h2><ul><li><a href="methodology.html">Methodology</a></li><li><a href="methodology.html">Docs</a></li><li><a href="methodology.html">API &amp; MCP</a></li><li><a href="status.html" data-prototype="missing">Status</a></li><li><a href="source.html" data-prototype="missing">Source</a></li><li><a href="https://x.com/HeyResearch">X</a></li></ul></div>
+  </div>
+</footer>
+
+<script>
+  /* Theme toggle. The <head> script already applied a stored choice before paint; this one re-reads it, sets data-theme on <html>,
+     flips it on click. No attribute stored = follow the system (the tokens' media query). */
+  (function () {
+    var root = document.documentElement, btn = document.querySelector('[data-theme-toggle]'), stored = null;
+    if (!btn) return;
+    try { stored = localStorage.getItem('hey-theme'); } catch (e) { stored = null; }
+    if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
+    function isDark() {
+      var t = root.getAttribute('data-theme');
+      if (t) return t === 'dark';
+      return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+    function paint() {
+      var d = isDark();
+      btn.setAttribute('aria-pressed', d ? 'true' : 'false');
+      btn.setAttribute('aria-label', d ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('hey-theme', next); } catch (e) {}
+      paint();
+    });
+    paint();
+  })();
+</script>
+<script src="app.js" defer></script>
+</body>
+</html>

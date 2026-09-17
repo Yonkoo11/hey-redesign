@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>$HEY · HEY Research Lab</title>
+<script>
+  /* Theme before first paint: same key ('hey-theme') as the toggle script at the end of the body; no attribute = follow the system. */
+  (function () { try { var t = localStorage.getItem('hey-theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {} })();
+</script>
+<!-- The icon is HEY's own mark. -->
+<link rel="icon" href="assets/icon.png" type="image/png">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Page-scoped layout only: tokens in, no colours or sizes of its own. */
+  .token-head { padding-top: var(--s-12); padding-bottom: var(--s-8); border-bottom: var(--rule); }
+  .token-head__title { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s-3) var(--s-4); margin-top: var(--s-2); }
+  .token-head__line { margin-top: var(--s-4); font-size: var(--text-read); line-height: var(--lh-read); color: var(--text-2); max-width: 60ch; }
+  .token-head__can { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-3); margin-top: var(--s-5); }
+  .project-main.token-main > section, .project-aside.token-aside > section { margin-top: 0; padding-block: var(--s-10); border-bottom: var(--rule); }
+  .token-main > section:first-child { padding-top: 0; }
+  /* the aside opens on the same strong rule and top padding as the main column's first kv row, so the two columns register */
+  .token-aside > section:first-child { padding-top: var(--s-3); border-top: var(--rule-strong); }
+  .token-body > * > section > .h2 { margin-bottom: var(--s-4); }
+  .token-body .prose > * + * { margin-top: var(--s-4); }
+  .kv--wide .kv__row { grid-template-columns: minmax(0, 200px) minmax(0, 1fr); }
+  .kv--wide dd, .kv--wide dd.kv__text { text-align: left; }
+  .kv dd.kv__addr { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: var(--s-2) var(--s-3); word-break: break-all; font-size: var(--text-sm); }
+  .kv__links { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-4); margin-top: var(--s-3); padding-top: var(--s-3); border-top: var(--rule-strong); }
+  .kv__links a { font-family: var(--font-mono); font-size: var(--text-sm); }
+  .disclosure__body .kv { border-top: 0; }
+  .disclosure__body .kv dd.kv__text { color: var(--text); }
+  .thirds { border-top: var(--rule-strong); margin-top: var(--s-4); }
+  .thirds__row { display: grid; grid-template-columns: minmax(0, 1fr) var(--s-12); gap: var(--s-1) var(--s-4); padding-block: var(--s-3); border-bottom: var(--rule); align-items: baseline; }
+  .thirds__row .num-md { text-align: right; }
+  .thirds__row .text-2 { grid-column: 1; font-size: var(--text-sm); }
+  .utilities { border-top: var(--rule-strong); margin-top: var(--s-3); }
+  .utilities__row { display: grid; gap: var(--s-1); padding-block: var(--s-4); border-bottom: var(--rule); }
+  .utilities__note { display: block; margin-top: var(--s-4); }
+  .figures { display: flex; flex-wrap: wrap; gap: var(--s-6) var(--s-12); margin-top: var(--s-6); }
+  .figures > div { display: grid; gap: var(--s-1); }
+  .figures .num-lg { display: block; }
+  .section__foot { margin-top: var(--s-5); }
+  @media (max-width: 720px) { .kv--wide .kv__row { grid-template-columns: minmax(0, 1fr); } .kv dd.kv__addr { justify-content: flex-start; } .thirds__row .num-md { text-align: left; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html" aria-label="HEY Research Lab, home">
+      <svg class="brand__mark" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 2h5v7h4V2h5v18h-5v-7H9v7H4z" fill="var(--accent)" stroke="var(--ink)" stroke-width="1"/></svg>
+      <span>HEY Research Lab<span class="brand__line">Robinhood Chain builder intelligence.</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="explore.html">Explore</a><a href="explore.html">Ships</a><a href="scan.html">Scout</a><a href="explore.html">Pulse</a><a href="hey.html" aria-current="page">$HEY</a>
+    </nav>
+    <div class="site-header__actions">
+      <span class="live"><i class="live__dot" aria-hidden="true"></i>RH / 4663</span>
+      <a class="btn btn--ghost site-header__search" href="index.html#q">Search</a>
+      <a class="btn btn--primary site-header__submit" href="submit.html" data-prototype="missing" title="Not part of this prototype">Submit Project</a>
+      <a class="btn btn--secondary site-header__signin" href="account.html">Sign in</a>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme" data-theme-toggle><span class="theme-toggle__glyph" aria-hidden="true">◐</span></button>
+      <details class="site-menu">
+        <summary class="btn btn--secondary">Menu</summary>
+        <nav class="site-menu__panel" aria-label="Menu">
+          <a href="explore.html">Explore</a><a href="explore.html">Ships</a><a href="scan.html">Scout</a><a href="explore.html">Pulse</a><a href="hey.html">$HEY</a>
+          <a href="index.html#q">Search</a><a href="submit.html" data-prototype="missing" title="Not part of this prototype">Submit Project</a><a href="account.html">Sign in</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="container">
+  <article aria-labelledby="token-h">
+    <header class="token-head">
+      <p class="caption">Token</p>
+      <div class="token-head__title">
+        <h1 class="display" id="token-h">$HEY</h1>
+        <span class="link-label">Live</span>
+      </div>
+      <p class="token-head__line">Coordination token for HEY Research Lab.</p>
+      <nav class="token-head__can" aria-label="You can">
+        <span class="source-line">You can</span>
+        <a class="btn btn--ghost btn--sm" href="#request-research">Request research</a>
+        <a class="btn btn--ghost btn--sm" href="bounties.html" data-prototype="missing" title="Not part of this prototype">Earn a bounty</a>
+        <a class="btn btn--ghost btn--sm" href="account.html">Vote this month</a>
+        <a class="btn btn--ghost btn--sm" href="account.html">Link a wallet</a>
+      </nav>
+    </header>
+
+    <div class="project-body token-body">
+      <div class="project-main token-main">
+        <section aria-labelledby="facts-h">
+          <h2 class="visually-hidden" id="facts-h">Token facts</h2>
+          <dl class="kv">
+            <div class="kv__row"><dt>Network</dt><dd>Robinhood Chain / 4663</dd></div>
+            <div class="kv__row"><dt>Launch</dt><dd class="kv__text">Pons V2</dd></div>
+            <div class="kv__row"><dt>Official contract</dt><dd class="kv__addr"><span id="contract-address">0xB33eb16782776b4D738c0Fd643577cb0284Db610</span><button class="btn btn--secondary btn--sm" type="button" aria-label="Copy contract address" data-copy="contract-address">Copy</button><span class="visually-hidden" role="status" id="copy-status"></span></dd></div>
+            <div class="kv__row"><dt>Treasury</dt><dd class="kv__addr">0x8A267ca21D87497a9C758277bF662A33A22DcAD5</dd></div>
+            <div class="kv__row"><dt>Treasury holds</dt><dd>31,257,164 HEY · 2.6560 ETH</dd><dd class="kv__note source-line">Read from the chain at block 64066633, 18h ago. The creator tax arrives in ETH; the HEY ledger below records payments in HEY.</dd></div>
+          </dl>
+        </section>
+
+        <section aria-labelledby="for-h">
+          <h2 class="h2" id="for-h">What it is for</h2>
+          <div class="prose"><p>$HEY coordinates research participation around HEY Research Lab. It is working capital for evidence work, and it never buys ranking or positive coverage. Eight things it does, each switched on as its integration is verified on chain:</p></div>
+          <p class="source-line utilities__note">Each is switched on as its integration is verified on chain.</p>
+          <ul class="utilities" aria-label="Eight things $HEY does">
+            <li class="utilities__row"><span class="h3">Pay for research and placements</span><span class="text-2">Request Research and paid placements are priced in HEY, lower for accounts that hold HEY.</span></li>
+            <li class="utilities__row"><span class="h3">Earn research bounties</span><span class="text-2">Evidence work the treasury pays for: half at approval, half ninety days later if the evidence still stands.</span></li>
+            <li class="utilities__row"><span class="h3">Back a claim with a bond</span><span class="text-2">A Scout bonds to claim a bounty; an owner may bond an update; a submission may carry one. Returned when the claim checks out.</span></li>
+            <li class="utilities__row"><span class="h3">Read with an API key</span><span class="text-2">A key reads the same public data with a monthly allowance that follows your tier.</span></li>
+            <li class="utilities__row"><span class="h3">Read research first</span><span class="text-2">New research notes open to holding tiers before they open to everyone.</span></li>
+            <li class="utilities__row"><span class="h3">Vote on research funding</span><span class="text-2">Once a month, say where the treasury’s research third goes. Advisory; the founder decides and publishes.</span></li>
+            <li class="utilities__row"><span class="h3">One wallet, linked once</span><span class="text-2">Every payment, payout and tier comes from the one wallet linked to your account by signature.</span></li>
+            <li class="utilities__row"><span class="h3">A ledger, monthly</span><span class="text-2">Every HEY that moves is a row with its transaction; the month’s table is published here.</span></li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="launch-h">
+          <h2 class="h2" id="launch-h">How it launched</h2>
+          <div class="prose">
+            <p>$HEY launched on Pons V2 on 9 September 2026: a bonding curve paired with ETH, one launch configuration, no presale. The curve opened at a 1.68 ETH valuation and graduated once 4.2 ETH had been raised; the raised ETH and the reserved 28.6% of supply seeded a full-range Uniswap v4 pool that Pons holds permanently. The figures below are the Pons V2 launch configuration HEY recorded on 9 September 2026 and the contract HEY verified at launch; they are not re-read from the chain on every visit.</p>
+          </div>
+          <details class="disclosure">
+            <summary>Launch configuration</summary>
+            <div class="disclosure__body">
+              <dl class="kv kv--wide">
+                <div class="kv__row"><dt>Supply</dt><dd class="kv__text">1,000,000,000 HEY, fixed, as recorded at launch</dd></div>
+                <div class="kv__row"><dt>Presale</dt><dd class="kv__text">None</dd></div>
+                <div class="kv__row"><dt>Private round</dt><dd class="kv__text">None</dd></div>
+                <div class="kv__row"><dt>Team premine</dt><dd class="kv__text">None</dd></div>
+                <div class="kv__row"><dt>Creator tax</dt><dd class="kv__text">2% on each trade, paid to the treasury. Pons allows up to 10%.</dd></div>
+                <div class="kv__row"><dt>Curve fee</dt><dd class="kv__text">1% on the ETH side of each trade, split by Pons between protocol, creator and buyback</dd></div>
+                <div class="kv__row"><dt>Snipe tax</dt><dd class="kv__text">Pons applies a 99% tax that decays to zero over the first three seconds, to everyone but the team's declared wallets</dd></div>
+                <div class="kv__row"><dt>Graduation</dt><dd class="kv__text">4.2 ETH raised, then a full-range Uniswap v4 position locked permanently through Pons</dd></div>
+                <div class="kv__row"><dt>First utility</dt><dd class="kv__text">Request Research</dd></div>
+              </dl>
+            </div>
+          </details>
+        </section>
+
+        <section id="request-research" aria-labelledby="request-h">
+          <h2 class="h2" id="request-h">Request Research</h2>
+          <div class="prose">
+            <p>Open. ≈ $10 a request: 66,600 HEY for holders, 74,000 HEY otherwise, paid to the treasury and verified on chain before it counts.</p>
+          </div>
+          <div class="figures">
+            <div><span class="caption">Holders</span><span class="num-lg">66,600 HEY</span></div>
+            <div><span class="caption">Otherwise</span><span class="num-lg">74,000 HEY</span></div>
+          </div>
+          <p class="source-line section__foot">≈ $10 a request</p>
+          <div class="prose section__foot">
+            <p>Payment buys a place in the research queue. The research that follows runs the normal methodology; its conclusions are whatever the evidence says.</p>
+            <p>Hold HEY in a wallet linked to your account and HEY prices are lower, an API key gets a larger monthly allowance, and new research notes are readable before everyone else. Holding never changes a ranking.</p>
+            <p>The price is set in dollars and quoted in HEY from HEY’s own price reading when you ask; the HEY figure on your request is fixed from then. A GitHub account can also ask free, within a small quota.</p>
+          </div>
+          <!-- Disabled: no research queue page exists in this prototype. -->
+          <p class="section__foot"><button class="btn btn--secondary" type="button" disabled>See the research queue</button></p>
+        </section>
+
+        <section aria-labelledby="funding-h">
+          <h2 class="h2" id="funding-h">Research funding</h2>
+          <div class="prose">
+            <p>The treasury’s research third pays for evidence work through <a href="bounties.html" data-prototype="missing" title="Not part of this prototype">research bounties</a>: half at approval, half ninety days later if the evidence still stands. Rewards are set in dollars by tier and quoted in HEY once, from HEY’s own price reading, when a bounty is posted; treasury bounties in any month are capped at a share of the treasury. Every payout is a transfer the founder sends and the worker verifies; the ledger is published monthly.</p>
+          </div>
+          <div class="figures">
+            <div><span class="caption">Open bounties</span><span class="num-lg">6</span></div>
+          </div>
+          <dl class="kv section__foot">
+            <div class="kv__row"><dt>HEY committed</dt><dd>1,300,000 HEY</dd></div>
+            <div class="kv__row"><dt>HEY paid out</dt><dd>155,000 HEY</dd></div>
+          </dl>
+          <p class="section__foot"><a class="btn btn--ghost" href="bounties.html" data-prototype="missing" title="Not part of this prototype">All bounties</a></p>
+        </section>
+      </div>
+
+      <aside class="project-aside token-aside" aria-label="Where the creator tax goes, and links">
+        <section aria-labelledby="tax-h">
+          <h2 class="h2" id="tax-h">Where the creator tax goes</h2>
+          <div class="prose"><p>2% of every trade goes to the HEY treasury and is spent in three equal parts.</p></div>
+          <div class="thirds" role="table" aria-label="Three equal parts of the creator tax">
+            <div class="thirds__row" role="row"><span class="h3" role="cell">Research bounties</span><span class="num-md" role="cell">1/3</span><span class="text-2" role="cell">Pays researchers and builders who verify ships, correct records and map sources</span></div>
+            <div class="thirds__row" role="row"><span class="h3" role="cell">Infrastructure and data</span><span class="num-md" role="cell">1/3</span><span class="text-2" role="cell">Servers, RPC, indexing and the public API</span></div>
+            <div class="thirds__row" role="row"><span class="h3" role="cell">Platform operations</span><span class="num-md" role="cell">1/3</span><span class="text-2" role="cell">Moderation, the weekly content, badges and films</span></div>
+          </div>
+          <div class="prose section__foot"><p>No buyback, no market operations. A ledger of what came in and what was spent is published here every month; the first entry is due on 9 October 2026.</p></div>
+          <div class="empty section__foot" id="ledger">
+            <h3 class="h3">No entries yet.</h3>
+            <p>First monthly entry is due on 9 October 2026.</p>
+          </div>
+        </section>
+
+        <section aria-labelledby="links-h">
+          <h2 class="caption" id="links-h">Links</h2>
+          <ul class="kv__links">
+            <li><a href="https://robinhoodchain.blockscout.com/token/0xB33eb16782776b4D738c0Fd643577cb0284Db610">View on explorer</a></li>
+            <li><a href="https://ponsfamily.com/launchpad/0xB33eb16782776b4D738c0Fd643577cb0284Db610">View on Pons</a></li>
+            <li><a href="project.html">HEY's own project page</a></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer ground-dots ground-dots--up">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <a class="brand" href="index.html" aria-label="HEY Research Lab, home">
+        <svg class="brand__mark" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 2h5v7h4V2h5v18h-5v-7H9v7H4z" fill="var(--accent)" stroke="var(--ink)" stroke-width="1"/></svg>
+        <span>HEY Research Lab<span class="brand__line">Robinhood Chain builder intelligence.</span></span>
+      </a>
+      <p class="site-footer__contract source-line">$HEY contract<br>0xB33eb16782776b4D738c0Fd643577cb0284Db610</p>
+      <p class="live live--static"><i class="live__dot" aria-hidden="true"></i>RH / 4663</p>
+    </div>
+    <div class="site-footer__group"><h2 class="caption">Discover</h2><ul><li><a href="explore.html">Explore</a></li><li><a href="explore.html">Ships</a></li><li><a href="explore.html">Pulse</a></li><li><a href="radar.html" data-prototype="missing" title="Not part of this prototype">Radar</a></li><li><a href="signals.html" data-prototype="missing" title="Not part of this prototype">Signals</a></li><li><a href="builders.html" data-prototype="missing" title="Not part of this prototype">Builders</a></li><li><a href="weekly.html" data-prototype="missing" title="Not part of this prototype">Weekly reports</a></li><li><a href="this-week.html" data-prototype="missing" title="Not part of this prototype">This Week</a></li><li><a href="narratives.html" data-prototype="missing" title="Not part of this prototype">Narratives</a></li><li><a href="map.html" data-prototype="missing" title="Not part of this prototype">Map</a></li></ul></div>
+    <div class="site-footer__group"><h2 class="caption">Research</h2><ul><li><a href="hey.html">$HEY</a></li><li><a href="scan.html">Scout</a></li><li><a href="scan.html">Who built this?</a></li><li><a href="bounties.html" data-prototype="missing" title="Not part of this prototype">Bounties</a></li><li><a href="submit.html" data-prototype="missing" title="Not part of this prototype">Submit Project</a></li><li><a href="account.html">Watchlist</a></li><li><a href="updates.html" data-prototype="missing" title="Not part of this prototype">Updates</a></li><li><a href="account.html">Account</a></li></ul></div>
+    <div class="site-footer__group"><h2 class="caption">About</h2><ul><li><a href="methodology.html">Methodology</a></li><li><a href="methodology.html">Docs</a></li><li><a href="methodology.html">API &amp; MCP</a></li><li><a href="status.html" data-prototype="missing" title="Not part of this prototype">Status</a></li><li><a href="source.html" data-prototype="missing" title="Not part of this prototype">Source</a></li><li><a href="https://x.com/HeyResearch">X</a></li></ul></div>
+  </div>
+</footer>
+
+<script>
+  /* Theme toggle: the only script on the page. Reads a stored choice in try/catch, sets data-theme on <html>,
+     flips it on click. No attribute stored = follow the system (the tokens' media query). */
+  (function () {
+    var root = document.documentElement, btn = document.querySelector('[data-theme-toggle]'), stored = null;
+    if (!btn) return;
+    try { stored = localStorage.getItem('hey-theme'); } catch (e) { stored = null; }
+    if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
+    function isDark() {
+      var t = root.getAttribute('data-theme');
+      if (t) return t === 'dark';
+      return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+    function paint() {
+      var d = isDark();
+      btn.setAttribute('aria-pressed', d ? 'true' : 'false');
+      btn.setAttribute('aria-label', d ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('hey-theme', next); } catch (e) {}
+      paint();
+    });
+    paint();
+  })();
+</script>
+<script>
+  /* Copy button: writes the contract address to the clipboard and announces "Copied" through the status span (the
+     button's aria-label stays "Copy contract address"). Without navigator.clipboard it selects the address instead. */
+  (function () {
+    var btn = document.querySelector('[data-copy]'), status = document.getElementById('copy-status'); if (!btn) return;
+    btn.addEventListener('click', function () {
+      var el = document.getElementById(btn.getAttribute('data-copy')); if (!el) return;
+      function done() {
+        btn.textContent = 'Copied'; if (status) status.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Copy'; if (status) status.textContent = ''; }, 2000);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(el.textContent.trim()).then(done).catch(function () {});
+      } else if (window.getSelection && document.createRange) {
+        var range = document.createRange(); range.selectNodeContents(el);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      }
+    });
+  })();
+</script>
+</body>
+</html>

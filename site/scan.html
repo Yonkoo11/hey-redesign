@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Who built this? · HEY Research Lab</title>
+<script>
+  /* Theme before first paint: same key ('hey-theme') as the toggle script at the end of the body; no attribute = follow the system. */
+  (function () { try { var t = localStorage.getItem('hey-theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {} })();
+</script>
+<!-- The icon is HEY's own mark. -->
+<link rel="icon" href="assets/icon.png" type="image/png">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Page-scoped layout only: tokens in, no colours or sizes of its own. */
+  .scan-hero { padding-block: var(--s-16) var(--s-12); }
+  .scan-hero .prose { margin-top: var(--s-6); }
+  .scan-form { margin-top: var(--s-8); max-width: 720px; }
+  .scan-form__row { display: flex; gap: var(--s-2); }
+  .scan-form__row .input { flex: 1 1 auto; }
+  .scan-form__row .btn { --btn-h: var(--input-h); flex: none; }
+  .reads { max-width: 720px; margin-top: var(--s-8); border-top: var(--rule-strong); }
+  .reads__row { display: grid; grid-template-columns: var(--s-8) minmax(0, 1fr); gap: var(--s-1) var(--s-4); padding-block: var(--s-3); border-bottom: var(--rule); align-items: baseline; }
+  .reads__n { font-family: var(--font-mono); font-size: var(--text-sm); color: var(--text-3); }
+  .reads__name { font-weight: 500; }
+  .reads__row .source-line { grid-column: 2; }
+  .states { max-width: 720px; margin-inline: 0; padding-block: var(--s-8) var(--s-12); }
+  .state + .state { margin-top: var(--s-12); }
+  .state > .caption { display: block; margin-bottom: var(--s-3); }
+  .state > .source-line { margin-top: var(--s-3); }
+  .answer__facts { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-6); margin-top: var(--s-3); }
+  .answer__momentum { display: flex; align-items: baseline; gap: var(--s-3); margin-top: var(--s-4); padding-top: var(--s-4); border-top: var(--rule); }
+  .answer__foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--s-3); margin-top: var(--s-4); }
+  .card--skeleton { pointer-events: none; }
+  @media (max-width: 720px) { .scan-form__row { flex-direction: column; } .scan-form__row .btn { width: 100%; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html" aria-label="HEY Research Lab, home">
+      <svg class="brand__mark" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 2h5v7h4V2h5v18h-5v-7H9v7H4z" fill="var(--accent)" stroke="var(--ink)" stroke-width="1"/></svg>
+      <span>HEY Research Lab<span class="brand__line">Robinhood Chain builder intelligence.</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="explore.html">Explore</a><a href="explore.html">Ships</a><a href="scan.html" aria-current="page">Scout</a><a href="explore.html">Pulse</a><a href="hey.html">$HEY</a>
+    </nav>
+    <div class="site-header__actions">
+      <span class="live"><i class="live__dot" aria-hidden="true"></i>RH / 4663</span>
+      <a class="btn btn--ghost site-header__search" href="index.html#q">Search</a>
+      <a class="btn btn--primary site-header__submit" href="submit.html" data-prototype="missing" title="Not part of this prototype">Submit Project</a>
+      <a class="btn btn--secondary site-header__signin" href="account.html">Sign in</a>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme" data-theme-toggle><span class="theme-toggle__glyph" aria-hidden="true">◐</span></button>
+      <details class="site-menu">
+        <summary class="btn btn--secondary">Menu</summary>
+        <nav class="site-menu__panel" aria-label="Menu">
+          <a href="explore.html">Explore</a><a href="explore.html">Ships</a><a href="scan.html">Scout</a><a href="explore.html">Pulse</a><a href="hey.html">$HEY</a>
+          <a href="index.html#q">Search</a><a href="submit.html" data-prototype="missing" title="Not part of this prototype">Submit Project</a><a href="account.html">Sign in</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="scan-hero ground-dots" aria-labelledby="scan-h">
+    <div class="container">
+      <h1 class="display-lg" id="scan-h">Is anyone building this?</h1>
+      <div class="prose">
+        <p>Paste a Robinhood Chain contract address. HEY reads the chain, the explorer and whatever the token declares about itself, and answers that one question with the source behind every line.</p>
+        <p class="text-2">It is not a risk check. Other tools read holders and wallets to judge what a token might do next; HEY reads neither, and this is meant to sit beside them rather than replace them.</p>
+      </div>
+
+      <form class="scan-form field" action="scan.html" method="get">
+        <label class="field__label" for="address">Contract address</label>
+        <div class="scan-form__row">
+          <input class="input mono" id="address" name="address" type="text" placeholder="0x…" spellcheck="false" autocomplete="off" inputmode="text">
+          <button class="btn btn--primary" type="submit">Find out</button>
+        </div>
+      </form>
+
+      <section class="reads" aria-labelledby="reads-h">
+        <h2 class="visually-hidden" id="reads-h">What HEY reads</h2>
+        <div class="reads__row"><span class="reads__n" aria-hidden="true">01</span><span class="reads__name">The chain</span><span class="source-line">RH / 4663 · events the contract emitted, methods called</span></div>
+        <div class="reads__row"><span class="reads__n" aria-hidden="true">02</span><span class="reads__name">The explorer</span><span class="source-line">verification and launch record</span></div>
+        <div class="reads__row"><span class="reads__n" aria-hidden="true">03</span><span class="reads__name">What the token declares about itself</span><span class="source-line">name, ticker and the links it publishes</span></div>
+      </section>
+    </div>
+  </section>
+
+  <section class="container" aria-labelledby="states-h">
+    <div class="states">
+    <h2 class="visually-hidden" id="states-h">What the answer looks like</h2>
+
+    <div class="state" aria-labelledby="state-reading">
+      <h3 class="caption" id="state-reading">Reading</h3>
+      <div class="card card--skeleton" aria-hidden="true">
+        <span class="skeleton skeleton--line"></span>
+        <span class="skeleton skeleton--line-sm"></span>
+        <span class="skeleton skeleton--figure"></span>
+        <span class="skeleton skeleton--label"></span>
+      </div>
+      <p class="source-line" role="status">Reading the chain for 0xd523…50d8</p>
+    </div>
+
+    <div class="state" aria-labelledby="state-indexed">
+      <h3 class="caption" id="state-indexed">Indexed</h3>
+      <article class="card">
+        <div class="card__head"><h4 class="h3">Chit <span class="ledger__meta">$CHIT</span></h4><span class="link-label link-label--ink">Verified builder</span></div>
+        <div class="answer__facts">
+          <span class="status status--shipping"><span class="status__glyph" aria-hidden="true">●</span>Shipping</span>
+          <span class="source-line">Last ship 2d ago</span>
+          <span class="source-line">Token unverified · 0xd523…50d8</span>
+        </div>
+        <div class="answer__momentum">
+          <span class="num-lg">34</span>
+          <span class="text-2">Build Momentum</span>
+        </div>
+        <div class="answer__foot">
+          <span class="source-line">read from the chain by HEY 23h ago</span>
+          <a class="btn btn--ghost btn--sm" href="project.html">Open the profile</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="state" aria-labelledby="state-new">
+      <h3 class="caption" id="state-new">Never seen</h3>
+      <article class="card">
+        <h4 class="h3">HEY has never seen this contract.</h4>
+        <p class="text-2">It has entered the research pipeline. HEY will look for public signals around it: contract activity, repos, releases, documentation and builder history.</p>
+        <div class="answer__foot">
+          <!-- Disabled: no watch page or backend exists in this prototype. -->
+          <button class="btn btn--secondary btn--sm" type="button" disabled>Watch this address</button>
+        </div>
+      </article>
+    </div>
+
+    <div class="state" aria-labelledby="state-error">
+      <h3 class="caption" id="state-error">Error</h3>
+      <div class="error-line" role="alert">
+        <i class="error-line__dot" aria-hidden="true"></i>
+        <span>Not a contract on Robinhood Chain.</span>
+        <button class="btn btn--secondary btn--sm" type="button">Retry</button>
+      </div>
+    </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer ground-dots ground-dots--up">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <a class="brand" href="index.html" aria-label="HEY Research Lab, home">
+        <svg class="brand__mark" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 2h5v7h4V2h5v18h-5v-7H9v7H4z" fill="var(--accent)" stroke="var(--ink)" stroke-width="1"/></svg>
+        <span>HEY Research Lab<span class="brand__line">Robinhood Chain builder intelligence.</span></span>
+      </a>
+      <p class="site-footer__contract source-line">$HEY contract<br>0xB33eb16782776b4D738c0Fd643577cb0284Db610</p>
+      <p class="live live--static"><i class="live__dot" aria-hidden="true"></i>RH / 4663</p>
+    </div>
+    <div class="site-footer__group"><h2 class="caption">Discover</h2><ul><li><a href="explore.html">Explore</a></li><li><a href="explore.html">Ships</a></li><li><a href="explore.html">Pulse</a></li><li><a href="radar.html" data-prototype="missing" title="Not part of this prototype">Radar</a></li><li><a href="signals.html" data-prototype="missing" title="Not part of this prototype">Signals</a></li><li><a href="builders.html" data-prototype="missing" title="Not part of this prototype">Builders</a></li><li><a href="weekly.html" data-prototype="missing" title="Not part of this prototype">Weekly reports</a></li><li><a href="this-week.html" data-prototype="missing" title="Not part of this prototype">This Week</a></li><li><a href="narratives.html" data-prototype="missing" title="Not part of this prototype">Narratives</a></li><li><a href="map.html" data-prototype="missing" title="Not part of this prototype">Map</a></li></ul></div>
+    <div class="site-footer__group"><h2 class="caption">Research</h2><ul><li><a href="hey.html">$HEY</a></li><li><a href="scan.html">Scout</a></li><li><a href="scan.html">Who built this?</a></li><li><a href="bounties.html" data-prototype="missing" title="Not part of this prototype">Bounties</a></li><li><a href="submit.html" data-prototype="missing" title="Not part of this prototype">Submit Project</a></li><li><a href="account.html">Watchlist</a></li><li><a href="updates.html" data-prototype="missing" title="Not part of this prototype">Updates</a></li><li><a href="account.html">Account</a></li></ul></div>
+    <div class="site-footer__group"><h2 class="caption">About</h2><ul><li><a href="methodology.html">Methodology</a></li><li><a href="methodology.html">Docs</a></li><li><a href="methodology.html">API &amp; MCP</a></li><li><a href="status.html" data-prototype="missing" title="Not part of this prototype">Status</a></li><li><a href="source.html" data-prototype="missing" title="Not part of this prototype">Source</a></li><li><a href="https://x.com/HeyResearch">X</a></li></ul></div>
+  </div>
+</footer>
+
+<script>
+  /* Theme toggle: the only script on the page. Reads a stored choice in try/catch, sets data-theme on <html>,
+     flips it on click. No attribute stored = follow the system (the tokens' media query). */
+  (function () {
+    var root = document.documentElement, btn = document.querySelector('[data-theme-toggle]'), stored = null;
+    if (!btn) return;
+    try { stored = localStorage.getItem('hey-theme'); } catch (e) { stored = null; }
+    if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
+    function isDark() {
+      var t = root.getAttribute('data-theme');
+      if (t) return t === 'dark';
+      return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+    function paint() {
+      var d = isDark();
+      btn.setAttribute('aria-pressed', d ? 'true' : 'false');
+      btn.setAttribute('aria-label', d ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('hey-theme', next); } catch (e) {}
+      paint();
+    });
+    paint();
+  })();
+</script>
+</body>
+</html>
